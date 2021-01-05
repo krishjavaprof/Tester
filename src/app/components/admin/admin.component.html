@@ -1,42 +1,37 @@
 <div class="container-fluid">
 
-    <mat-toolbar color="primary" class="navbar">
-    <span>DEMO</span>
-    </mat-toolbar>
+  
   
     <div  fxLayout="row" fxLayoutAlign="center center">
         <mat-grid-list cols="1" rowHeight="500px">
         <mat-card>
             <div class="container">
-                <div class="row">
-                    <mat-card-header class="col-md-8">
-                        <mat-card-title class="text-success"> Administrator </mat-card-title>
-                    </mat-card-header>
-      
-                    <mat-form-field class="col-md-4 ">
-                        <mat-label>User Type</mat-label>
-                            <mat-select [(value)]="selected">
-                                <mat-option value="Administrator">Administrator</mat-option>
-                                <!-- <mat-option>Patient</mat-option>
-                                <mat-option>Provider</mat-option> -->
-                            </mat-select>
-                    </mat-form-field>
-                </div>
+                
             </div>
-  
+            <!--<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>Registration</strong> Success
+              <button type ="button"class ="close" data-dismiss ="alert"aria-label="Close">
+              <span aria-hidden ="true">&times;</span>
+              </button>
+                            </div>-->
+                           
+            <form class="example-form" [formGroup]="formGroup" >
             <mat-expansion-panel  class="border border-grey">
-                <mat-expansion-panel-header class="bg-primary">
-                    <mat-panel-title>Personal</mat-panel-title>
+                <mat-expansion-panel-header>
+                    <mat-panel-title style="color:#fff">Personal</mat-panel-title>
                 </mat-expansion-panel-header>
       
-                <form class="example-form ">
+              
           
                     <div class="container">
                         <div class="row mt-3">
                 
                             <mat-form-field  appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>First Name</mat-label>
-                                <input matInput>
+                                <mat-label>First Name <span class="required-asterisk">*</span></mat-label>
+                                <input formControlName="firstName" matInput class ="matInput" mat-stroked-button placeholder="firstName" >
+                                <mat-error *ngIf="!formGroup.controls['firstName'].valid && formGroup.controls['firstName'].touched">
+                                    {{ getErrorFisrtName() }}           
+                                  </mat-error>
                             </mat-form-field>
              
               
@@ -49,49 +44,74 @@
         
               
                             <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>Last Name</mat-label>
-                                <input matInput>
+                                <mat-label>Last Name <span class="required-asterisk">*</span></mat-label>
+                                <input formControlName="lastName" matInput class ="matInput" mat-stroked-button placeholder="lastName" >
+                                <mat-error *ngIf="!formGroup.controls['lastName'].valid && formGroup.controls['lastName'].touched">
+                                       {{getErrorLastName()}}          
+                                  </mat-error>
                             </mat-form-field>
                         </div>
               
                         <div class="row">
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <!-- <mat-form-field formControlName="gender" appearance="fill" class="example-full-width col-md-4">
                                 <mat-label> Gender </mat-label>
                                 <mat-select >
                                     <mat-option value="Male">Male</mat-option>
                                     <mat-option value="Female">Female</mat-option>
-                                    <!-- <mat-option>Provider</mat-option> -->
+                                 
                                 </mat-select>
-                                <input matInput>
+                                <input formControlName="gender" matInput class ="matInput" mat-stroked-button placeholder="gender" >
+                                <mat-error *ngIf="!formGroup.controls['gender'].valid && formGroup.controls['gender'].touched">
+                                                 
+                                  </mat-error>
+                            </mat-form-field> -->
+                            <mat-form-field  appearance="fill" class="example-full-width col-md-4">
+
+                                <mat-label>Gender <span class="required-asterisk">*</span>  </mat-label>
+                            <mat-select    formControlName="gender" >
+                    
+                              <mat-option  value="M" >Male</mat-option>
+                              <mat-option  value="F" >Female</mat-option>
+                              <mat-option  value="O" >Other</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="!formGroup.controls['gender'].valid && formGroup.controls['gender'].touched">
+                                {{getErrorGender()}}          
+                           </mat-error>
                             </mat-form-field>
             
+                            <!--<mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                <mat-label> Date of Birth </mat-label>
+                                <input matInput="picker"  formControlName="dob"  >
+                            </mat-form-field>-->
                             <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> Date </mat-label>
-                                <input matInput="picker" >
-                            </mat-form-field>
-            
+                                <mat-label> Date of Birth </mat-label>
+                                <input matInput [matDatepicker]="picker1" placeholder="dob" formControlName="dob">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
+                              </mat-form-field>
                         </div>
                     
                     </div>
                 
-                </form>
       
             </mat-expansion-panel>
   
   
             <mat-expansion-panel  class="border border-grey">
                 <mat-expansion-panel-header class="bg-primary">
-                <mat-panel-title>Contact</mat-panel-title>
+                <mat-panel-title style="color:#fff">Contact</mat-panel-title>
                 </mat-expansion-panel-header>
   
-                <form class="example-form ">
           
-                    <div class="container">
+                    <div class="container" >
                         <div class="row mt-3">
                 
                             <mat-form-field  appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>Phone Number</mat-label>
-                                <input matInput>
+                                <mat-label>Mobile Number <span class="required-asterisk">*</span></mat-label>
+                                <input formControlName="mobile" matInput class ="matInput" mat-stroked-button placeholder="mobile" >
+                                <mat-error *ngIf="!formGroup.controls['mobile'].valid && formGroup.controls['mobile'].touched">
+                                    {{ getErrorMobile() }}           
+                                  </mat-error>
                             </mat-form-field>
              
               
@@ -104,8 +124,11 @@
         
               
                             <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>E-Mail ID</mat-label>
-                                <input matInput>
+                                <mat-label>E-Mail ID <span class="required-asterisk">*</span></mat-label>
+                                <input formControlName="emailId" matInput class ="matInput" mat-stroked-button placeholder="emailId" >
+                                <mat-error *ngIf="!formGroup.controls['emailId'].valid && formGroup.controls['emailId'].touched">
+                                    {{ getErrorEmail() }}        
+                                  </mat-error>
                             </mat-form-field>
                         </div>
               
@@ -122,37 +145,20 @@
   
                             <mat-form-field appearance="fill" class="example-full-width col-md-4">
                                 <mat-label> State </mat-label>
-                                <input matInput="picker" >
-                                <mat-select >
-                                    <mat-option value="Alabama">Alabama</mat-option>
-                                    <mat-option value="Alaska">Alaska</mat-option>
-                                    <mat-option value="Arizona">Arizona</mat-option>
-                                    <mat-option value="Arkansas">Arkansas</mat-option>
-                                    <mat-option value="California">California</mat-option>
-                                    <mat-option value="Colorado">Colorado</mat-option>
-                                    <mat-option value="Connecticut">Connecticut</mat-option>
-                                    <mat-option value="Delaware">Delaware</mat-option>
-                                    <mat-option value="Florida">Florida</mat-option>
-                                    <mat-option value="Florida">Florida</mat-option>
-                                </mat-select>
+                                <mat-select>
+                                <mat-option>None</mat-option>
+                                <mat-option *ngFor="let state of states" [value]="state">{{state}}
+                                </mat-option>
+                            </mat-select>
                             </mat-form-field>
             
                             <mat-form-field appearance="fill" class="example-full-width col-md-4">
                                 <mat-label> County </mat-label>
-                                <input matInput="picker" >
+                               
                                 <mat-select >
-                                    <mat-option value="Autauga">Autauga</mat-option>
-                                    <mat-option value="Baldwin">Baldwin</mat-option>
-                                    <mat-option value="Barbour">Barbour</mat-option>
-                                    <mat-option value="Bibb">Bibb</mat-option>
-                                    <mat-option value="Blount">Blount</mat-option>
-                                    <mat-option value="Bullock">Bullock</mat-option>
-                                    <mat-option value="Butler">Butler</mat-option>
-                                    <mat-option value="Calhoun">Calhoun</mat-option>
-                                    <mat-option value="Chambers">Chambers</mat-option>
-                                    <mat-option value="Cherokee">Cherokee</mat-option>
-                                    <mat-option value="Chilton">Chilton</mat-option>
-                                    <mat-option value="Choctaw">Choctaw</mat-option>
+                                    <mat-option>None</mat-option>
+                                    <mat-option *ngFor="let county of county" [value]="county">{{county}}
+                                    </mat-option>
                                 </mat-select>
                             </mat-form-field>
            
@@ -166,12 +172,12 @@
   
         
                     
-                </form>
             </mat-expansion-panel>
+        </form>
 
             <mat-action-row>
                 <button mat-raised-button>Cancel</button>
-                <button mat-raised-button>Save</button>
+                <button mat-raised-button (click)="onSubmit(formGroup)">Save</button>
             </mat-action-row>
      
         </mat-card>
