@@ -1,28 +1,48 @@
-<img src="src\assets\images\nurse-measuring-patient-blood-pressure.jpg" alt="">
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
- <img class="float_left " [src]= myimage1>
-    <mat-card class="box">
+
+<div   class="bg login-wrapper"fxLayout="row" fxLayoutAlign="center center">
+ <!--<img class="float_left " src= "assets/images/loginbg.png">-->
+ <div  class="loginform">  
+   <div class ="logobg logo">
+     <img src="/assets/images/logo.png " class ="imagestyle">
+   </div>
+  <mat-card class= "matcard box" > 
      
-     <img src="src\assets\images\loginbg.png" alt="">
-      <form class="example-form">
+     
+      <form  class="example-form" [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" >
       
-        <mat-card-content >
+        <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput mat-stroked-button placeholder="UserName">
+            <input formControlName="emailId" matInput class ="matInput" mat-stroked-button placeholder="User Name" >
+            <mat-error *ngIf="!formGroup.controls['emailId'].valid && formGroup.controls['emailId'].touched">
+              {{ getErrorEmail() }}              
+            </mat-error>
+           
+          
+
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
-            <input matInput mat-stroked-button placeholder="Password">
+            <input formControlName="password" matInput mat-stroked-button placeholder="Password"type="password">
+            <mat-error *ngIf="!formGroup.controls['password'].valid">
+              {{getError('pass')}}
+            </mat-error>
           </mat-form-field>
         </mat-card-content>
       
 
-        <button mat-stroked-button color="#ffffff" class="btn-block">Log in</button>
+        <button   mat-stroked-button color="#ffffff" class="btn-block">Log in</button>
     
       </form>
-      <a  mat-button  routerLink="/register">Register User</a>
-      <a  mat-button  routerLink="/login">Change Password</a>
-    <img>
+      <a mat-button class="matButtonLeft" routerLink="/register">Register User</a>
+     <a mat-button class ="matButtonRight" routerLink="/password">Change Password</a>
+
+    
     </mat-card>
+    
+    
+
+
+
+
  
   </div>
