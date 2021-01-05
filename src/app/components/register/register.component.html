@@ -16,15 +16,17 @@
               <mat-form-field class="col-md-4 ">
                 <mat-label>User Type</mat-label>
                 <mat-select>
-                  <a routerLink="/admin"> <mat-option value="admin"> Administrator </mat-option> </a>
+                  <a (click)="registerType='admin'"> <mat-option value="admin"> Administrator </mat-option> </a>
                   <a routerLink="/patient"> <mat-option value="patient"> Patient </mat-option> </a>
                   <a routerLink="/provider"> <mat-option value="provider"> Provider </mat-option> </a>
                 </mat-select>
               </mat-form-field>
             </div>
           </div>
-  
-          <mat-expansion-panel  class="border border-grey">
+        <div  *ngIf="registerType==='admin'">
+          <app-admin></app-admin>
+        </div>
+        <!-- <mat-expansion-panel  class="border border-grey">
             <mat-expansion-panel-header class="bg-primary">
               <mat-panel-title>Personal</mat-panel-title>
             </mat-expansion-panel-header>
@@ -55,8 +57,7 @@
                     <mat-select >
                       <mat-option value="Male">Male</mat-option>
                       <mat-option value="Female">Female</mat-option>
-                      <!-- <mat-option value=""></mat-option> -->
-                  </mat-select>
+                       <mat-option value=""></mat-option>                   </mat-select>
                     <input matInput>
                   </mat-form-field>
           
@@ -142,7 +143,7 @@
               </mat-action-row>
             </div>
       
-          </mat-expansion-panel>
+          </mat-expansion-panel>-->
         </mat-card>
       </mat-grid-list>
     </div>
