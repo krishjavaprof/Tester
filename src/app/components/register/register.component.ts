@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class RegisterComponent implements OnInit {
-
+  registerType:string;
   Roles: any = ['Administrator', 'Patient', 'Provider'];
 
   constructor() { }
