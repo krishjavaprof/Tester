@@ -11,6 +11,8 @@ import { first } from 'rxjs/operators';
 import { UserService } from 'src/app/services/user.service';
 import { LoginUser } from 'src/app/models/user.model';
 import { UserStateService} from '../../services/user-state.service';
+import { AuthenticationService } from '../../services/authentication.service';
+import { Router } from '@angular/router';
 
 
 
@@ -22,7 +24,8 @@ import { UserStateService} from '../../services/user-state.service';
 export class LogInComponent {
   formGroup: FormGroup;
   post: any = '';
-  constructor(private formBuilder: FormBuilder,private userService: UserService, private userstate: UserStateService) { }
+  invalidLogin = false
+  constructor(private formBuilder: FormBuilder,private userService: UserService, private userstate: UserStateService,private loginservice: AuthenticationService,private router: Router) { }
 
   ngOnInit() {
     this.createForm();
@@ -117,7 +120,20 @@ console.log("USER Strinfy "+JSON.stringify(loginUser))
               console.log( "failure ");
            });
 }
-  
+checkLogin() {
+  (this.loginservice.authenticate(this.formGroup.controls.emailId.value, this.formGroup.controls.password.value).subscribe(
+    data => {
+      this.router.navigate([''])
+      this.invalidLogin = false
+    },
+    error => {
+      this.invalidLogin = true
+
+    }
+  )
+  );
+
+}
   
 
 }
