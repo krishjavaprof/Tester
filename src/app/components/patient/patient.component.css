@@ -1,16 +1,27 @@
 
 mat-expansion-panel-header {
-    background-color:#107C93 !important ;
+    background-color:rgba(0,0,0,.04) !important ;
+    color:black !important;
 }
 mat-toolbar{
     background-color:#107C93 !important ;
+    color:black 
 }
 mat-panel-title{
-    color:#fff !important;
+    color: black;
 }
 .required-asterisk{
     color: red;
     font-weight: bold;
     margin-left: 3px;
     font-size: 1.2em;
+}
+.mat-expanded .mat-expansion-panel-header {
+    background-color: #107C93 !important ;
+}
+.mat-expanded mat-panel-title{
+    color:#fff !important;
+}
+.mat-expansion-panel-header.mat-expanded {
+    height: 45px;
 }

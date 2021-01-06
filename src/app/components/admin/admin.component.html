@@ -1,15 +1,16 @@
 <div class="container">
 
-    <div fxLayout="row" fxLayoutAlign="center center">
-        <mat-grid-list cols="1" rowHeight="500px">
-        <mat-card>                         
+    <div >
+        <div class="row">    
+            <div class="col-12">       
             <form class="example-form" [formGroup]="formGroup" >
             <mat-expansion-panel  class="border border-grey">
                 <mat-expansion-panel-header>
-                    <mat-panel-title style="color:#fff">Personal</mat-panel-title>
+                    <mat-panel-title>Personal</mat-panel-title>
                 </mat-expansion-panel-header>
       
                     <div class="container">
+
                         <div class="row mt-3">
                 
                             <mat-form-field  appearance="fill" class="example-full-width col-md-4">
@@ -33,7 +34,7 @@
                                 <mat-label>Last Name <span class="required-asterisk">*</span></mat-label>
                                 <input formControlName="lastName" matInput class ="matInput" mat-stroked-button placeholder="lastName" >
                                 <mat-error *ngIf="!formGroup.controls['lastName'].valid && formGroup.controls['lastName'].touched">
-                                       {{getErrorLastName()}}          
+                                       {{getErrorLastName()}}  test        
                                   </mat-error>
                             </mat-form-field>
                         </div>
@@ -85,7 +86,7 @@
   
             <mat-expansion-panel  class="border border-grey">
                 <mat-expansion-panel-header class="bg-primary">
-                <mat-panel-title style="color:#fff">Contact</mat-panel-title>
+                <mat-panel-title>Contact</mat-panel-title>
                 </mat-expansion-panel-header>
   
           
@@ -160,15 +161,19 @@
                     
             </mat-expansion-panel>
         </form>
+    </div>  
+        </div>
+<div class="row">
+    
 
-            <mat-action-row>
-                <button mat-raised-button>Cancel</button>
-                <button mat-raised-button (click)="onSubmit(formGroup)">Save</button>
-            </mat-action-row>
+    <mat-action-row>
+        <button mat-raised-button>Cancel</button>
+        <button mat-raised-button (click)="onSubmit(formGroup)">Save</button>
+    </mat-action-row>
+</div>
+            
      
-        </mat-card>
-  
-        </mat-grid-list>
+       
   
     </div> 
   

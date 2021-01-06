@@ -1,19 +1,14 @@
 <div class="container">
     
   
-    <div  fxLayout="row" fxLayoutAlign="center center">
-        <mat-grid-list cols="1" rowHeight="500px">
-            <mat-card>
+    <div>
+      
               
                 <form class="example-form" [formGroup]="formGroup" >
                     <mat-expansion-panel  class="border border-grey">
                         <mat-expansion-panel-header>
-                            <mat-panel-title style="color:#fff">Personal</mat-panel-title>
+                            <mat-panel-title>Personal</mat-panel-title>
                         </mat-expansion-panel-header>
-              
-                      
-                  
-                            <div class="container">
                                 <div class="row mt-3">
                         
                                     <mat-form-field  appearance="fill" class="example-full-width col-md-4">
@@ -81,7 +76,7 @@
                                       </mat-form-field>
                                 </div>
                             
-                            </div>
+                          
                         
               
                     </mat-expansion-panel>
@@ -89,7 +84,7 @@
           
                     <mat-expansion-panel  class="border border-grey">
                         <mat-expansion-panel-header class="bg-primary">
-                        <mat-panel-title style="color:#fff">Contact</mat-panel-title>
+                        <mat-panel-title >Contact</mat-panel-title>
                         </mat-expansion-panel-header>
           
                   
@@ -209,12 +204,7 @@
                 <mat-action-row>
                     <button mat-raised-button>Cancel</button>
                     <button mat-raised-button (click)="onSubmit(formGroup)">Save</button>
-                </mat-action-row>
-      
-                
-            </mat-card>
-        </mat-grid-list>
-    
+                </mat-action-row>    
     </div> 
 
 </div>
