@@ -1,1 +1,19 @@
 
+
+mat-expansion-panel-header {
+    background-color:#107C93 !important ;
+    color:#fff !important;
+}
+mat-toolbar{
+    background-color:#107C93 !important ;
+    color:#fff !important;
+}
+mat-panel-title{
+    color:#fff !important;
+}
+.required-asterisk{
+    color: red;
+    font-weight: bold;
+    margin-left: 3px;
+    font-size: 1.2em;
+}

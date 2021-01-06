@@ -5,3 +5,6 @@ mat-expansion-panel-header {
 mat-toolbar{
     background-color:#107C93 !important ;
 }
+.register-section{
+    width:100%;
+}

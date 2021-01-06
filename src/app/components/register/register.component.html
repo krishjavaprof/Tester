@@ -1,11 +1,11 @@
-<div class="container-fluid">
+<div class="container">
   <mat-toolbar color="primary" class="navbar">
     <span>ENABLERS</span>
   </mat-toolbar>
   <mat-grid-list cols="1" rowHeight="500px">
    
     <div  fxLayout="row" fxLayoutAlign="center center">
-      <mat-grid-list cols="1" rowHeight="500px">
+      <mat-grid-list cols="1" rowHeight="500px" class="register-section">
         <mat-card>
           <div class="container">
             <div class="row">
@@ -16,15 +16,21 @@
               <mat-form-field class="col-md-4 ">
                 <mat-label>User Type</mat-label>
                 <mat-select>
-                  <a (click)="registerType='admin'"> <mat-option value="admin"> Administrator </mat-option> </a>
-                  <a routerLink="/patient"> <mat-option value="patient"> Patient </mat-option> </a>
-                  <a routerLink="/provider"> <mat-option value="provider"> Provider </mat-option> </a>
+                  <mat-option value="admin" (click)="registerType='admin'"> Administrator </mat-option> 
+                  <mat-option value="patient" (click)="registerType='patient'"> Patient </mat-option> 
+                  <mat-option (click)="registerType='provider'" value="provider"> Provider </mat-option>
                 </mat-select>
               </mat-form-field>
             </div>
           </div>
         <div  *ngIf="registerType==='admin'">
           <app-admin></app-admin>
+        </div>
+        <div  *ngIf="registerType==='patient'">
+          <app-patient></app-patient>
+        </div>
+        <div  *ngIf="registerType==='provider'">
+          <app-provider></app-provider>
         </div>
         <!-- <mat-expansion-panel  class="border border-grey">
             <mat-expansion-panel-header class="bg-primary">

@@ -1,28 +1,10 @@
 <div class="container">
-    <mat-toolbar color="primary" class="navbar">
-        <span>ENABLERS</span>
-    </mat-toolbar>
+    
   
     <div  fxLayout="row" fxLayoutAlign="center center">
         <mat-grid-list cols="1" rowHeight="500px">
             <mat-card>
-                <div class="container">
-                    <div class="row">
-                        <mat-card-header class="col-md-8">
-                            <mat-card-title class="text-success"> Provider Registeration </mat-card-title>
-                        </mat-card-header>
-      
-                        <mat-form-field class="col-md-4 ">
-                            <mat-label>User Type</mat-label>
-                            <mat-select [(value)]="selected">
-                                <!-- <mat-option >Administrator</mat-option>
-                                <mat-option>Patient</mat-option> -->
-                                <mat-option value="Provider">Provider</mat-option>
-                            </mat-select>
-                        </mat-form-field>
-                    </div>
-                </div>
-  
+              
                 <form class="example-form" [formGroup]="formGroup" >
                     <mat-expansion-panel  class="border border-grey">
                         <mat-expansion-panel-header>
