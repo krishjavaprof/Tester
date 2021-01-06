@@ -27,6 +27,7 @@ import { ProviderComponent } from './components/provider/provider.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { PasswordComponent } from './components/password/password.component';
 
 
 
@@ -40,7 +41,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     AdminComponent,
     PatientComponent,
     ProviderComponent,
-    
+    PasswordComponent
   ],
   imports: [
     BrowserModule,

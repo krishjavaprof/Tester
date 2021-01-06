@@ -26,7 +26,7 @@ export class PasswordComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,private userService: UserService,private validatorService: ValidatorService,private matDialog: MatDialog, private userState: UserStateService) { }
   ngOnInit(): void {
     this.oldPassword = new FormControl('', [Validators.required]);
-    this.newPassword = new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(8),Validators.pattern("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$")]);
+    this.newPassword = new FormControl('', [Validators.required, Validators.maxLength(15), Validators.minLength(8),Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]);
     this.confirmPassword = new FormControl('', [Validators.required, this.validatorService.MustMatch(this.newPassword)]);
    
     this.formGroup = this.formBuilder.group({
