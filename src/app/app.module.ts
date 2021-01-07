@@ -19,11 +19,11 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 /* Components */
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
-import { AdminComponent } from './components/admin/admin.component';
+import { AdminComponent } from './components/register/admin/admin.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
-import { PatientComponent } from './components/patient/patient.component';
-import { ProviderComponent } from './components/provider/provider.component';
+import { PatientComponent } from './components/register/patient/patient.component';
+import { ProviderComponent } from './components/register/provider/provider.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';

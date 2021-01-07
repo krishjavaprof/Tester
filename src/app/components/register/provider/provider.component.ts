@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import { first } from 'rxjs/operators';
 import { User } from 'src/app/models/user.model';
+import { Provider } from 'src/app/models/provider.model';
 import { Personal } from 'src/app/models/personal.model';
 import {MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { DialogBodyComponent } from '../../components/dialog-body/dialog-body.component';
-
+import { DialogBodyComponent } from '../../../components/dialog-body/dialog-body.component';
 @Component({
-  selector: 'app-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  selector: 'app-provider',
+  templateUrl: './provider.component.html',
+  styleUrls: ['./provider.component.css']
 })
-export class AdminComponent implements OnInit {
+export class ProviderComponent implements OnInit {
   alert:boolean=false
-  selected = 'Administrator';
+  selected = 'Provider';
   formGroup: FormGroup;
   post: any = '';
   constructor(private formBuilder: FormBuilder,private userService: UserService,private matDialog: MatDialog) { }
@@ -31,7 +31,6 @@ export class AdminComponent implements OnInit {
     'Autauga', 'Baldwin', 'Barbour', 'Bibb', 'Blount', 'Bullock', 'Butler', 'Calhoun',
     'Chambers', 'Cherokee', 'Chilton', 'Choctaw'
   ];
-
   ngOnInit() {
     this.createForm();
   
@@ -53,7 +52,10 @@ export class AdminComponent implements OnInit {
         'county': [''],
         'zipCode': [''],
         'alternateNumber': [''],
-        'mobileNumber': ['']
+        'mobileNumber': [''],
+        'npi':['',[Validators.required]],
+        'providerID':['',[Validators.required]]
+
        })
     //  'emailId': ['', [Validators.required,Validators.email,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]]
         
@@ -69,7 +71,8 @@ export class AdminComponent implements OnInit {
       console.log("req");
       return ('Email is required');
     }
-    if( this.formGroup.get('emailId').hasError('alreadyInUse')){
+   
+    if( this.formGroup.get('userName').hasError('alreadyInUse')){
       console.log("alredy");
       return( 'This emailaddress is already in use')
     }
@@ -79,6 +82,21 @@ export class AdminComponent implements OnInit {
     if(this.formGroup.get('mobile').hasError('required')){
       console.log("req");
       return ('Mobile Number is required');
+    }
+    return ''
+  }
+   getErrorNPI() {
+    if(this.formGroup.get('npi').hasError('required')){
+      console.log("req");
+      return ('NPI is required');
+    }
+    return ''
+  }
+     
+  getErrorProviderIO() {
+    if(this.formGroup.get('providerID').hasError('required')){
+      console.log("req");
+      return ('providerID is required');
     }
     return ''
   }
@@ -104,65 +122,64 @@ export class AdminComponent implements OnInit {
     return ''
   }
   regUser: User;
-  //personal: Personal
+  provider:Provider;
   onSubmit(post) {
     this.post = post;
    console.log(this.formGroup.value);
-   //this.submitted = true;
-
-   // stop here if form is invalid
    if (this.formGroup.invalid) {
-     console.log("IN INAVLID")
-       return;
-   }
-   this.regUser=this.formGroup.value;
- var personal=new Personal()
+    console.log("IN INAVLID")
+      return;
+  }
+  this.regUser=this.formGroup.value;
+  var provider = new Provider();
+  provider.emailId = this.formGroup.controls.emailId.value;
+  provider.npi = this.formGroup.controls.npi.value;
+  provider.providerId = this.formGroup.controls.providerID.value;
+  this.regUser.userType='Provider';
+
+  this.regUser.provider = provider;
+  var personal=new Personal()
    
-   personal.emailId= this.formGroup.controls.emailId.value;
-   personal.insuranceId= this.formGroup.controls.insuranceId.value;
-   personal.firstName= this.formGroup.controls.firstName.value;
-   personal.lastName= this.formGroup.controls.lastName.value;
-   personal.middleName= this.formGroup.controls.middleName.value;
-   personal.dob= this.formGroup.controls.dob.value;
-   personal.mobileNumber= this.formGroup.controls.mobileNumber.value;
-   personal.gender= this.formGroup.controls.gender.value;
-   personal.address= this.formGroup.controls.address.value;
-   personal.city= this.formGroup.controls.city.value;
-   personal.state= this.formGroup.controls.state.value;
-   personal.county= this.formGroup.controls.county.value;
-   personal.zipCode= this.formGroup.controls.zipCode.value;
-   personal.alternateNumber= this.formGroup.controls.alternateNumber.value;
-   this.regUser.userType='Admin';
-
-
-
-this.regUser.personal=personal;
-
-console.log("USER Strinfy "+JSON.stringify(this.regUser))
-   //this.loading = true;
-   this.userService.createUser(this.regUser)
-       .pipe(first())
-       .subscribe(
-           data => {
-              // this.userService.createUser.success('Registration successful', true);
-               //this.router.navigate(['/loginUser']);
-               console.log("Success "+JSON.stringify(data));
-               this.matDialog.open(DialogBodyComponent);
-              //  this.alert=true
-               this.formGroup.reset({})
-           },
-           
-           error => {
-               //this.userService.error(error);
-              // this.loading = false;
-              
-              console.log( "failure ");
-              this.alert=false
-           });
-           
-}
-
-
+  personal.emailId= this.formGroup.controls.emailId.value;
+  personal.insuranceId= '';
+  personal.firstName= this.formGroup.controls.firstName.value;
+  personal.lastName= this.formGroup.controls.lastName.value;
+  personal.middleName= this.formGroup.controls.middleName.value;
+  personal.dob= this.formGroup.controls.dob.value;
+  personal.mobileNumber= this.formGroup.controls.mobileNumber.value;
+  personal.gender= this.formGroup.controls.gender.value;
+  personal.address= this.formGroup.controls.address.value;
+  personal.city= this.formGroup.controls.city.value;
+  personal.state= this.formGroup.controls.state.value;
+  personal.county= this.formGroup.controls.county.value;
+  personal.zipCode= this.formGroup.controls.zipCode.value;
+  personal.alternateNumber= this.formGroup.controls.alternateNumber.value;
+  this.regUser.personal=personal;
+  console.log("USER Strinfy "+JSON.stringify(this.regUser))
+  //this.loading = true;
+  this.userService.createUser(this.regUser)
+      .pipe(first())
+      .subscribe(
+          data => {
+             // this.userService.createUser.success('Registration successful', true);
+              //this.router.navigate(['/loginUser']);
+              console.log("Success "+JSON.stringify(data));
+              this.matDialog.open(DialogBodyComponent);
+             //  this.alert=true
+              this.formGroup.reset({})
+          },
+          
+          error => {
+              //this.userService.error(error);
+             // this.loading = false;
+             
+             console.log( "failure ");
+             this.alert=false
+          });
+          
   
 
+
+
+}
 }

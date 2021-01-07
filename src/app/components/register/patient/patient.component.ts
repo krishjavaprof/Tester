@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import {MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { User } from 'src/app/models/user.model';
 import { Personal } from 'src/app/models/personal.model';
 import { PatientUser } from 'src/app/models/patient.model';
 import { Insurance } from 'src/app/models/insurance.model';
 import { first } from 'rxjs/operators';
-import { DialogBodyComponent } from '../../components/dialog-body/dialog-body.component';
+import { DialogBodyComponent } from '../../../components/dialog-body/dialog-body.component';
 
 @Component({
   selector: 'app-patient',
