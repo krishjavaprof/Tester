@@ -30,10 +30,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogBodyComponent } from './components/dialog-body/dialog-body.component';
-
-
-
-
+import { LogInSuccessComponent} from './components/login-success/login-success.component';
+import { HeaderComponent } from './components/login-success/header/header.component';
 
 @NgModule({
   declarations: [
@@ -46,11 +44,9 @@ import { DialogBodyComponent } from './components/dialog-body/dialog-body.compon
     PatientComponent,
     ProviderComponent,
     DialogBodyComponent,
-    PasswordComponent
-    
-    
-   
-    
+    PasswordComponent,
+    LogInSuccessComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
