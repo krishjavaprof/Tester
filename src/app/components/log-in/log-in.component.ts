@@ -121,6 +121,7 @@ console.log("USER Strinfy "+JSON.stringify(loginUser))
            });
 }
 checkLogin() {
+   this.userstate.setUserInfo(this.formGroup.controls.emailId.value, 'emailId');
   (this.loginservice.authenticate(this.formGroup.controls.emailId.value, this.formGroup.controls.password.value).subscribe(
     data => {
       this.router.navigate([''])
