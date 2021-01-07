@@ -20,6 +20,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { LogInComponent } from './components/log-in/log-in.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminComponent } from './components/register/admin/admin.component';
+import { PasswordComponent } from './components/password/password.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 import { PatientComponent } from './components/register/patient/patient.component';
@@ -27,7 +28,10 @@ import { ProviderComponent } from './components/register/provider/provider.compo
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { PasswordComponent } from './components/password/password.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogBodyComponent } from './components/dialog-body/dialog-body.component';
+
+
 
 
 
@@ -41,7 +45,12 @@ import { PasswordComponent } from './components/password/password.component';
     AdminComponent,
     PatientComponent,
     ProviderComponent,
+    DialogBodyComponent,
     PasswordComponent
+    
+    
+   
+    
   ],
   imports: [
     BrowserModule,
@@ -55,7 +64,10 @@ import { PasswordComponent } from './components/password/password.component';
     FlexLayoutModule,
     HttpClientModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDialogModule
+   
+    
     
   ],
   providers: [
