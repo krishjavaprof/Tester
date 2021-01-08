@@ -32,7 +32,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogBodyComponent } from './components/dialog-body/dialog-body.component';
 import { LogInSuccessComponent} from './components/login-success/login-success.component';
 import { HeaderComponent } from './components/login-success/header/header.component';
-
+import { SideMenuComponent } from './components/login-success/side-menu/side-menu.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +47,7 @@ import { HeaderComponent } from './components/login-success/header/header.compon
     PasswordComponent,
     LogInSuccessComponent,
     HeaderComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,

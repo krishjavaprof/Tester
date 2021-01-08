@@ -1,0 +1,37 @@
+.user-profile-section {
+    background-color: black;
+    display: flex;
+    flex-wrap: wrap;
+}
+.user-imge {
+    flex: 0 0 auto;
+    min-width: 30px;
+    margin: 15px 5px 15px 7px;
+}
+.user-info {
+    flex: 0 0 auto;
+    color: white;
+    margin-top: 5px;
+}
+.user-info p {
+    margin: 0px;
+    font-size: 11px;
+}
+.menu-section ul {
+    list-style: none;
+    padding: 0px;
+}
+.menu-section li {
+    padding: 5px 0px;
+    background-color: white;
+    color: #107C93;
+    border: 1px solid #107C93;
+}
+.menu-section .active {
+    background-color: #107C93;
+    color: white;
+}
+.menu-section .menu-icon {
+    height: 18px;
+    padding-left: 10px;    
+}

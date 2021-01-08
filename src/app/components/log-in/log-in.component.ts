@@ -25,7 +25,8 @@ export class LogInComponent {
   formGroup: FormGroup;
   post: any = '';
   invalidLogin = false
-  constructor(private formBuilder: FormBuilder,private userService: UserService, private userstate: UserStateService,private loginservice: AuthenticationService,private router: Router) { }
+  constructor(private formBuilder: FormBuilder,private userService: UserService, 
+    private userstate: UserStateService,private loginservice: AuthenticationService,private router: Router) { }
 
   ngOnInit() {
     this.createForm();
@@ -126,6 +127,7 @@ checkLogin() {
     data => {
       this.router.navigate([''])
       this.invalidLogin = false
+      this.router.navigateByUrl('/user');
     },
     error => {
       this.invalidLogin = true
