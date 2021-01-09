@@ -1,0 +1,28 @@
+.appointments-section {
+    border: 1px solid #dee2e6!important;
+    margin: 10px;
+    border-radius: 4px;
+    min-height: 300px;
+}
+.toggle-menu {
+    text-align: right;
+    padding: 20px 10px 15px 10px;
+}
+.search-section {
+    border: 1px solid #dee2e6;
+    margin: 10px;
+}
+.search-header {
+    color: #107C93
+}
+
+.serach-results {
+    margin-left: 10px;
+}
+.action-items {
+    text-align: right;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: #ffffff !important;
+}

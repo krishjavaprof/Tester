@@ -4,13 +4,14 @@
 }
 .side-bar-section{
     flex: 0 0 auto;
-    width: 150px;
+    width: 13%;
     background-color: #107C93;
     height: 100%;
     position: absolute;
 }
 .display-content {
     flex: 0 0 auto;
-    width: 100%; 
-    margin-left: 150px;
+    width: 87%;
+    margin-left: 13%;
+    background-color: white;
 }

@@ -26,6 +26,11 @@
     background-color: white;
     color: #107C93;
     border: 1px solid #107C93;
+    cursor: pointer;
+}
+.menu-section li:hover {
+    background-color: #107C93;
+    color: #ffffff;
 }
 .menu-section .active {
     background-color: #107C93;

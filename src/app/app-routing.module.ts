@@ -7,7 +7,8 @@ import { PatientComponent } from './components/register/patient/patient.componen
 import { ProviderComponent } from './components/register/provider/provider.component';
 import { PasswordComponent } from './components/password/password.component';
 import { LogInSuccessComponent} from './components/login-success/login-success.component';
-
+import { AppointmentsComponent } from './components/login-success/provider-dashboard/appointments/appointments.component';
+import {HomeComponent} from './components/login-success/provider-dashboard/home/home.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LogInComponent },
@@ -16,7 +17,13 @@ const routes: Routes = [
   {path: 'patient', component: PatientComponent },
   {path: 'provider', component:ProviderComponent},
   {path: 'password', component: PasswordComponent},
-  {path: 'user', component: LogInSuccessComponent}
+  {path: 'user', component: LogInSuccessComponent,
+  children: [
+    { path: 'provider-appointments', component: AppointmentsComponent},
+    {path: 'provider-home', component: HomeComponent },
+    { path: '', pathMatch: 'full', redirectTo: 'provider-home' },
+  ]
+}
 ];
 
 @NgModule({

@@ -10,12 +10,12 @@
 </div>
 <div class="menu-section">  
     <ul>
-        <li >
-            <img class="menu-icon" src="../../../../assets/images/plus-sign.svg" alt="Home">
+        <li [routerLink]="['/user/provider-home']">
+            <img class="menu-icon" src="../../../../assets/images/home.svg" alt="Home">
             Home
         </li>
-        <li class="active">
-            <img class="menu-icon" src="../../../../assets/images/plus-sign.svg" alt="Appointments">
+        <li class="active" [routerLink]="['/user/provider-appointments']">
+            <img class="menu-icon" src="../../../../assets/images/appointment-2.svg" alt="Appointments">
             Appointments
         </li>
         <li>

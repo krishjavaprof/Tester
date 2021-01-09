@@ -33,6 +33,11 @@ import { DialogBodyComponent } from './components/dialog-body/dialog-body.compon
 import { LogInSuccessComponent} from './components/login-success/login-success.component';
 import { HeaderComponent } from './components/login-success/header/header.component';
 import { SideMenuComponent } from './components/login-success/side-menu/side-menu.component';
+import { AppointmentsComponent } from './components/login-success/provider-dashboard/appointments/appointments.component';
+import { MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSliderModule } from '@angular/material/slider';
+import {HomeComponent} from './components/login-success/provider-dashboard/home/home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +52,9 @@ import { SideMenuComponent } from './components/login-success/side-menu/side-men
     PasswordComponent,
     LogInSuccessComponent,
     HeaderComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    AppointmentsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,9 @@ import { SideMenuComponent } from './components/login-success/side-menu/side-men
     HttpClientModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSliderModule,
+    MatSlideToggleModule
    
     
     
