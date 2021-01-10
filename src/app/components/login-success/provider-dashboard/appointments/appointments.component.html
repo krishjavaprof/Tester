@@ -4,49 +4,103 @@
     </div>
     <div class="search-section">
         <mat-card>
-         
-        <div class="">
-            <h3 class="search-header"> Search</h3>
-            <form>
-                <div class="row mt-3">
 
-                    <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                        <mat-label>First Name <span class="required-asterisk">*</span></mat-label>
-                        <input matInput class="matInput" mat-stroked-button placeholder="firstName">
-                    </mat-form-field>
+            <div class="">
+                <h3 class="search-header"> Search</h3>
+                <form>
+                    <div class="row mt-3">
 
-                    <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                        <mat-label> Date of Birth </mat-label>
-                        <input matInput [matDatepicker]="picker1" placeholder="dob">
-                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-                        <mat-datepicker #picker1></mat-datepicker>
-                    </mat-form-field>
+                        <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-label>First Name <span class="required-asterisk">*</span></mat-label>
+                            <input matInput class="matInput" mat-stroked-button placeholder="firstName">
+                        </mat-form-field>
 
-                    <mat-form-field class="col-md-4 ">
-                        <mat-label>status</mat-label>
-                        <mat-select>
-                          <mat-option value="admin" > 1</mat-option> 
-                          <mat-option value="patient" > 2 </mat-option> 
-                          <mat-option value="provider"> 3 </mat-option>
-                        </mat-select>
-                      </mat-form-field>
-                </div>
-                <div class="row">
-                    <div class="action-items">
-                        <mat-action-row>
-                            <button mat-raised-button>Cancel</button>
-                            <button mat-raised-button class="serach-results">Search</button>
-                        </mat-action-row>
+                        <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-label> Date of Birth </mat-label>
+                            <input matInput [matDatepicker]="picker1" placeholder="dob">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field class="col-md-4 ">
+                            <mat-label>status</mat-label>
+                            <mat-select>
+                                <mat-option value="admin"> 1</mat-option>
+                                <mat-option value="patient"> 2 </mat-option>
+                                <mat-option value="provider"> 3 </mat-option>
+                            </mat-select>
+                        </mat-form-field>
                     </div>
-                    
-                </div>                
-            </form>
-        </div>           
-    </mat-card>
+                    <div class="row">
+                        <div class="action-items">
+                            <mat-action-row>
+                                <button mat-raised-button>Cancel</button>
+                                <button mat-raised-button class="serach-results">Search</button>
+                            </mat-action-row>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </mat-card>
 
     </div>
 
     <div class="search-results">
-
+     
+        <table class="mat-table cdk-table mat-elevation-z8">
+            <thead role="rowgroup">
+                <tr  role="row" 
+                    class="mat-header-row cdk-header-row ng-star-inserted">
+                    <th  role="columnheader" 
+                        class="mat-header-cell cdk-header-cell cdk-column-Appointment-ID mat-column-Appointment-ID ng-star-inserted">
+                        Appointment ID </th>
+                    <th  role="columnheader" 
+                        class="mat-header-cell cdk-header-cell cdk-column-Patient-Name mat-column-Patient-Name ng-star-inserted">
+                        Patient Name </th>
+                    <th  role="columnheader" 
+                        class="mat-header-cell cdk-header-cell cdk-column-Date---Time mat-column-Date---Time ng-star-inserted">
+                        Date &amp; Time </th>
+                    <th  role="columnheader" 
+                        class="mat-header-cell cdk-header-cell cdk-column-Reason-for-Visit mat-column-Reason-for-Visit ng-star-inserted">
+                        Reason for Visit </th>
+                    <th  role="columnheader" 
+                        class="mat-header-cell cdk-header-cell cdk-column-status mat-column-status ng-star-inserted">
+                        status </th>
+                    <th  role="columnheader" 
+                        class="mat-header-cell cdk-header-cell cdk-column-Action mat-column-Action ng-star-inserted">
+                        Action </th>
+                </tr>
+            </thead>
+            <tbody role="rowgroup">
+                <tr  role="row" class="mat-row cdk-row ng-star-inserted" *ngFor="let element of dataSource">
+                    <td  role="gridcell" 
+                        class="mat-cell cdk-cell appointment-code ng-star-inserted" [ngClass]="element.code">
+                        <span class="status-color"></span>
+                        {{element.appointmentId}} </td>
+                    <td  role="gridcell" 
+                        class="mat-cell cdk-cell cdk-column-Patient-Name mat-column-Patient-Name ng-star-inserted">
+                        {{element.patientName}}
+                    </td>
+                    <td  role="gridcell" 
+                        class="mat-cell cdk-cell cdk-column-Date---Time mat-column-Date---Time ng-star-inserted">
+                        {{element.date}}</td>
+                    <td  role="gridcell" 
+                        class="mat-cell cdk-cell cdk-column-Reason-for-Visit mat-column-Reason-for-Visit ng-star-inserted">
+                        {{element.reason}}</td>
+                    <td  role="gridcell" 
+                        class="mat-cell cdk-cell cdk-column-status mat-column-status ng-star-inserted"> 
+                        {{element.status}}
+                     </td>
+                    <td  role="gridcell" 
+                        class="mat-cell cdk-cell cdk-column-Action mat-column-Action ng-star-inserted">
+                        {{element.action}}
+                    </td>
+                    <!--ng-container-->
+                </tr>
+                <!--ng-container-->
+                <!--ng-container-->
+            </tbody>
+        </table>
     </div>
 </div>

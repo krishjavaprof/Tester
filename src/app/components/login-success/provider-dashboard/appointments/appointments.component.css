@@ -1,3 +1,6 @@
+
+
+
 .appointments-section {
     border: 1px solid #dee2e6!important;
     margin: 10px;
@@ -16,12 +19,66 @@
     color: #107C93
 }
 
-.serach-results {
-    margin-left: 10px;
+.search-results {
+    
+    padding: 0px 10px;
 }
 .action-items {
     text-align: right;
 }
+
+table {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+
+tr.mat-header-row {
+    height: 56px;
+}
+.mat-header-row {
+    background-color:  #107C93;
+}
+.mat-header-row th {
+    color: #ffffff;
+}
+th.mat-header-cell:first-of-type, td.mat-cell:first-of-type, td.mat-footer-cell:first-of-type {
+    padding-left: 24px;
+}
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+    padding: 0;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+}
+
+tr.mat-row, tr.mat-footer-row {
+    height: 48px;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    border-bottom-color: rgba(0,0,0,.12) !important;
+
+}
+
+ td.mat-cell {
+    padding-left: 24px;
+}
+.appointment-code{
+    border-left: 5px solid;
+}
+ .green {
+    border-color: green;
+}
+
+.orange {
+    border-color: orange;
+}
+
+
+
 
 .mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: #ffffff !important;
