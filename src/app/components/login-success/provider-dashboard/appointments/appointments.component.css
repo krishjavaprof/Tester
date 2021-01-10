@@ -23,6 +23,9 @@
     
     padding: 0px 10px;
 }
+.search-button {
+    margin-left: 10px;
+}
 .action-items {
     text-align: right;
 }
@@ -72,6 +75,22 @@ tbody, td, tfoot, th, thead, tr {
  .green {
     border-color: green;
 }
+.red {
+    border-color: red;
+}
+
+.status-field {
+    padding-top: 10px;
+}
+.c-appointments {
+    display: inline;
+    padding-right: 20px;
+}
+
+.toggle-menu .active {
+    color: #107C93
+}
+
 
 .orange {
     border-color: orange;
