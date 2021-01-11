@@ -75,7 +75,7 @@ return ''
   
   
   regUser: User;
-  onSubmit(post) {
+  onSubmit(post) {    
     this.post = post;
    console.log(this.formGroup.value);
    console.log("post",this.post);
@@ -125,7 +125,7 @@ return ''
         this.userService.changePassword(body).subscribe(
                 (data) => {
                   console.log("Success "+JSON.stringify(data));
-                  this.matDialog.open(DialogBodyComponent);
+                  this.matDialog.open(DialogBodyComponent, {data: 'Password Updated Sucessfull'});
                  //  this.alert=true
                   this.formGroup.reset({})
                 },

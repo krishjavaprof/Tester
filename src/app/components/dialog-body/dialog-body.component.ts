@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import {MatDialog, MatDialogConfig, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef } from "@angular/material/dialog";
 
 @Component({
@@ -9,9 +9,17 @@ import { MatDialogRef } from "@angular/material/dialog";
 })
 export class DialogBodyComponent implements OnInit {
 
-  constructor(private matDialog: MatDialog,public dialogRef: MatDialogRef<DialogBodyComponent>) { }
+  public message;
+  constructor(private matDialog: MatDialog,public dialogRef: MatDialogRef<DialogBodyComponent>,  @Inject(MAT_DIALOG_DATA) public passeedData: any) {
+ 
+   }
 
   ngOnInit(): void {
+    if (this.passeedData) {
+      this.message = this.passeedData;
+    } else {
+      this.message = 'Registration Sucessfull';
+    }  
   }
   close() {
     this.dialogRef.close();

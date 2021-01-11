@@ -17,6 +17,9 @@
   text-align: center;
   width: 100%;
 }
+.login-btn {
+  outline: none;
+}
 .imagestyle {
   border-radius: 50%;
   width: 100px;
