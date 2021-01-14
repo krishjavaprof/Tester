@@ -75,8 +75,8 @@
                         Action </th>
                 </tr>
             </thead>
-            <tbody role="rowgroup">
-                <tr  role="row" class="mat-row cdk-row ng-star-inserted" *ngFor="let element of dataSource">
+            <tbody role="rowgroup" *ngFor="let element of dataSource">
+                <tr  role="row" class="mat-row cdk-row ng-star-inserted" >
                     <td  role="gridcell" 
                         class="mat-cell cdk-cell appointment-code ng-star-inserted" [ngClass]="element.code">
                         <span class="status-color"></span>
@@ -97,10 +97,18 @@
                      </td>
                     <td  role="gridcell" 
                         class="mat-cell cdk-cell cdk-column-Action mat-column-Action ng-star-inserted">
-                        {{element.action}}
+                        <img class="action-img" (click) = "element.openActionItem = true" src="../../../../../assets/images/cancel.svg" alt="cancel">
                     </td>
                     <!--ng-container-->
                 </tr>
+
+                <tr class="action-box">
+                    <td colspan="6">
+                        <app-action-appointments *ngIf="element.openActionItem" (actionComplted)="element.openActionItem = false"></app-action-appointments>
+                    </td>
+
+                </tr>
+
                 <!--ng-container-->
                 <!--ng-container-->
             </tbody>

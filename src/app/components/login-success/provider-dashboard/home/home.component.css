@@ -89,9 +89,13 @@ body, html {
     padding-top: 70px;
 }
 
+.next-appointment {
+    width: 80px;
+}
 
-
-
+.time-management {
+    width: 80px;  
+}
 
 
 .sidebar

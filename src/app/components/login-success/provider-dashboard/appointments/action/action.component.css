@@ -1,0 +1,25 @@
+.action-box-continer {
+    border: 1px solid green;
+    min-height: 60px;
+    --bs-gutter-x: 0rem;
+}
+
+.action-box-continer .accept {
+    width: 30px;
+   
+}
+.action-message {
+    display: inline;
+}
+.content {
+    margin: 10px;
+}
+.action-items {
+    text-align: right;
+    padding-top: 12px;
+}
+.ok-button{
+    margin-left: 15px;
+    background-color: #107C93;
+    color: #ffffff;
+}

@@ -37,6 +37,7 @@ import { AppointmentsComponent } from './components/login-success/provider-dashb
 import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSliderModule } from '@angular/material/slider';
 import {HomeComponent} from './components/login-success/provider-dashboard/home/home.component';
+import { ActionComponent } from './components/login-success/provider-dashboard/appointments/action/action.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import {HomeComponent} from './components/login-success/provider-dashboard/home/
     HeaderComponent,
     SideMenuComponent,
     AppointmentsComponent,
-    HomeComponent
+    HomeComponent,
+    ActionComponent
   ],
   imports: [
     BrowserModule,
@@ -71,10 +73,7 @@ import {HomeComponent} from './components/login-success/provider-dashboard/home/
     MatNativeDateModule,
     MatDialogModule,
     MatSliderModule,
-    MatSlideToggleModule
-   
-    
-    
+    MatSlideToggleModule    
   ],
   providers: [
     

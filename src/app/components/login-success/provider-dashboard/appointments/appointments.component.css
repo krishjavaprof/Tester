@@ -69,6 +69,13 @@ tbody, td, tfoot, th, thead, tr {
  td.mat-cell {
     padding-left: 24px;
 }
+.action-box td {
+    padding: 4px 0px;
+}
+.action-img {
+    width:20px;
+    cursor: pointer;
+}
 .appointment-code{
     border-left: 5px solid;
 }
