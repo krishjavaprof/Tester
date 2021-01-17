@@ -38,7 +38,7 @@ import { MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSliderModule } from '@angular/material/slider';
 import {HomeComponent} from './components/login-success/provider-dashboard/home/home.component';
 import { ActionComponent } from './components/login-success/provider-dashboard/appointments/action/action.component';
-
+import { ClaimsComponent } from './components/login-success/provider-dashboard/claims/claims.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +56,8 @@ import { ActionComponent } from './components/login-success/provider-dashboard/a
     SideMenuComponent,
     AppointmentsComponent,
     HomeComponent,
-    ActionComponent
+    ActionComponent,
+    ClaimsComponent
   ],
   imports: [
     BrowserModule,

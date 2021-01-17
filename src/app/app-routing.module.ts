@@ -9,6 +9,8 @@ import { PasswordComponent } from './components/password/password.component';
 import { LogInSuccessComponent} from './components/login-success/login-success.component';
 import { AppointmentsComponent } from './components/login-success/provider-dashboard/appointments/appointments.component';
 import {HomeComponent} from './components/login-success/provider-dashboard/home/home.component';
+import { ClaimsComponent } from './components/login-success/provider-dashboard/claims/claims.component';
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LogInComponent },
@@ -21,6 +23,7 @@ const routes: Routes = [
   children: [
     { path: 'provider-appointments', component: AppointmentsComponent},
     {path: 'provider-home', component: HomeComponent },
+    {path: 'provider-claims', component: ClaimsComponent },
     { path: '', pathMatch: 'full', redirectTo: 'provider-home' },
   ]
 }

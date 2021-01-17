@@ -10,15 +10,15 @@
 </div>
 <div class="menu-section">  
     <ul>
-        <li [routerLink]="['/user/provider-home']">
+        <li [routerLinkActive]="'active'"  [routerLink]="['/user/provider-home']">
             <img class="menu-icon" src="../../../../assets/images/home.svg" alt="Home">
             Home
         </li>
-        <li class="active" [routerLink]="['/user/provider-appointments']">
+        <li  [routerLinkActive]="'active'" [routerLink]="['/user/provider-appointments']" >
             <img class="menu-icon" src="../../../../assets/images/appointment-2.svg" alt="Appointments">
             Appointments
         </li>
-        <li>
+        <li [routerLinkActive]="'active'"  [routerLink]="['/user/provider-claims']">
             <img class="menu-icon" src="../../../../assets/images/claim.svg" alt="claim">
             claims
         </li>

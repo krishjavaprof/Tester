@@ -1,7 +1,7 @@
 .action-box-continer {
     border: 1px solid green;
     min-height: 60px;
-    --bs-gutter-x: 0rem;
+    margin: 0px;
 }
 
 .action-box-continer .accept {

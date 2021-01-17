@@ -97,14 +97,19 @@
                      </td>
                     <td  role="gridcell" 
                         class="mat-cell cdk-cell cdk-column-Action mat-column-Action ng-star-inserted">
-                        <img class="action-img" (click) = "element.openActionItem = true" src="../../../../../assets/images/cancel.svg" alt="cancel">
+                        <img class="action-img" (click) = "element.actionType='accept'; element.openActionItem = true" src="../../../../../assets/images/check.svg" alt="accept">
+                        
+                        <img class="action-img" (click) = "element.actionType='delete';element.openActionItem = true" src="../../../../../assets/images/delete.svg" alt="delete">
+                   
+                        <img class="action-img" (click) = "element.actionType='cancel';element.openActionItem = true" src="../../../../../assets/images/cancel.svg" alt="cancel">
+                    
                     </td>
                     <!--ng-container-->
                 </tr>
 
-                <tr class="action-box">
+                <tr class="action-box" *ngIf="element.openActionItem">
                     <td colspan="6">
-                        <app-action-appointments *ngIf="element.openActionItem" (actionComplted)="element.openActionItem = false"></app-action-appointments>
+                        <app-action-appointments  (actionComplted)="element.openActionItem = false"></app-action-appointments>
                     </td>
 
                 </tr>

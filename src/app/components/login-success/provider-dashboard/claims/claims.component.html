@@ -1,0 +1,91 @@
+<div class="claims-section container">
+    <div class="row claims-header">
+        <div class="col-4">
+            <button mat-raised-button type="button" class="create-claims-btn">Create claims</button>
+        </div>
+        <div class="col-8">
+            <div class="toggle-menu">
+                <div class="s-claims active">Submitted Claims</div>
+                <mat-slide-toggle>Pending Claims</mat-slide-toggle>                
+            </div>
+        </div>
+    </div>
+    
+    <div class="search-section">
+        <mat-card>
+
+            <div class="">
+                <h3 class="search-header"> Search Claims</h3>
+                <form >
+                    <div class="row mt-3">
+
+                        <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-label>Claims ID </mat-label>
+                            <input  matInput class="matInput" mat-stroked-button placeholder="Claims ID">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-label>Appointment ID</mat-label>
+                            <input  matInput class="matInput" mat-stroked-button placeholder="Appointment ID">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-label>Patient Name</mat-label>
+                            <input  matInput class="matInput" mat-stroked-button placeholder="Patient Name">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="action-items float-right">                            
+                                <button mat-raised-button>Cancel</button>
+                                <button mat-raised-button type="submit"  class="search-button">Search</button>                            
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </mat-card>
+    </div>
+    <div class="search-results">
+     
+        <table class="mat-table cdk-table mat-elevation-z8">
+            <thead role="rowgroup">
+                <tr  role="row" 
+                    class="mat-header-row cdk-header-row ng-star-inserted">
+                    <th  role="columnheader" 
+                        class="mat-header-cell cdk-header-cell cdk-column-Appointment-ID mat-column-Appointment-ID ng-star-inserted">
+                        Claim ID </th>
+                    <th  role="columnheader" 
+                        class="mat-header-cell cdk-header-cell cdk-column-Patient-Name mat-column-Patient-Name ng-star-inserted">
+                        Appointment ID </th>
+                    <th  role="columnheader" 
+                        class="mat-header-cell cdk-header-cell cdk-column-Date---Time mat-column-Date---Time ng-star-inserted">
+                        Patient Name </th>
+                    <th  role="columnheader" 
+                        class="mat-header-cell cdk-header-cell cdk-column-Reason-for-Visit mat-column-Reason-for-Visit ng-star-inserted">
+                        Date</th>
+                   
+                </tr>
+            </thead>
+            <tbody role="rowgroup" >
+                <tr  role="row" class="mat-row cdk-row ng-star-inserted" >
+                    <td  role="gridcell" 
+                        class="mat-cell cdk-cell appointment-code ng-star-inserted" >
+                        <span class="status-color"></span>
+                         </td>
+                    <td  role="gridcell" 
+                        class="mat-cell cdk-cell cdk-column-Patient-Name mat-column-Patient-Name ng-star-inserted">
+                       
+                    </td>
+                    <td  role="gridcell" 
+                        class="mat-cell cdk-cell cdk-column-Date---Time mat-column-Date---Time ng-star-inserted">
+                    </td>
+                    
+                   
+                </tr>
+
+            
+            </tbody>
+        </table>
+    </div>
+</div>
