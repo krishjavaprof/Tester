@@ -1,14 +1,50 @@
 <div class="claims-section container">
     <div class="row claims-header">
         <div class="col-4">
-            <button mat-raised-button type="button" class="create-claims-btn">Create claims</button>
+            <button (click)="createNewClaim = true" mat-raised-button type="button" class="create-claims-btn">Create claims</button>
         </div>
         <div class="col-8">
             <div class="toggle-menu">
-                <div class="s-claims active">Submitted Claims</div>
-                <mat-slide-toggle>Pending Claims</mat-slide-toggle>                
+                <div class="s-claims" [ngClass]= "submittedClaimsActive ? 'active' : ''">Submitted Claims</div>
+                <mat-slide-toggle [ngClass]= "submittedClaimsActive ? '' : 'active'">Pending Claims</mat-slide-toggle>                
             </div>
         </div>
+    </div>
+    <div class="new-claim" *ngIf="createNewClaim">
+        <mat-card>
+
+            <div class="">
+                <form >
+                    <div class="row mt-3">
+
+                        <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-label>Appointment ID </mat-label>
+                            <input  matInput class="matInput" mat-stroked-button placeholder="Appointment ID">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-label>Patient Name</mat-label>
+                            <input  matInput class="matInput" mat-stroked-button placeholder="Patient Name">
+                        </mat-form-field>
+                        <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-label> Date </mat-label>
+                            <input matInput [matDatepicker]="picker1" >
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="action-items float-right">                            
+                                <button mat-raised-button (click)="createNewClaim = false">Cancel</button>
+                                <button mat-raised-button type="button"  class="search-button">Submit</button>                            
+                        </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </mat-card>
+
     </div>
     
     <div class="search-section">
@@ -46,12 +82,14 @@
             </div>
         </mat-card>
     </div>
+
+
     <div class="search-results">
      
         <table class="mat-table cdk-table mat-elevation-z8">
             <thead role="rowgroup">
                 <tr  role="row" 
-                    class="mat-header-row cdk-header-row ng-star-inserted">
+                    class="mat-header-row cdk-header-row ng-star-inserted" >
                     <th  role="columnheader" 
                         class="mat-header-cell cdk-header-cell cdk-column-Appointment-ID mat-column-Appointment-ID ng-star-inserted">
                         Claim ID </th>
@@ -68,17 +106,23 @@
                 </tr>
             </thead>
             <tbody role="rowgroup" >
-                <tr  role="row" class="mat-row cdk-row ng-star-inserted" >
+                <tr  role="row" class="mat-row cdk-row ng-star-inserted" *ngFor="let element of dataSource">
                     <td  role="gridcell" 
-                        class="mat-cell cdk-cell appointment-code ng-star-inserted" >
+                        class="mat-cell cdk-cell claim-code ng-star-inserted green" >
                         <span class="status-color"></span>
+                        {{element.claimId}}
                          </td>
                     <td  role="gridcell" 
                         class="mat-cell cdk-cell cdk-column-Patient-Name mat-column-Patient-Name ng-star-inserted">
-                       
+                        {{element.appointmentId}}
                     </td>
                     <td  role="gridcell" 
                         class="mat-cell cdk-cell cdk-column-Date---Time mat-column-Date---Time ng-star-inserted">
+                        {{element.patientName}}
+                    </td>
+                    <td  role="gridcell" 
+                        class="mat-cell cdk-cell cdk-column-Date---Time mat-column-Date---Time ng-star-inserted">
+                        {{element.date}}
                     </td>
                     
                    
