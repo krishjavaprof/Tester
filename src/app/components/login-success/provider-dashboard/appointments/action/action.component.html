@@ -1,13 +1,13 @@
 <div class="action-box-continer row">
     <div class="content col-7" >
         <img class="accept" src="../../../../../../assets/images/check.svg" alt="accept">
-        <div class="action-message">Are you shure you want to accept the appointment</div>
+        <div class="action-message">{{message}}</div>
     </div>
 
     <div class="col-4 action-items">
        
             <mat-action-row>
-                <button mat-raised-button>Cancel</button>
+                <button mat-raised-button (click)="cancel()">Cancel</button>
                 <button mat-raised-button type="submit" (click)="actionOk()" class="ok-button">ok</button>
             </mat-action-row>
      

@@ -78,10 +78,17 @@ tbody, td, tfoot, th, thead, tr {
 .appointment-code{
     border-left: 5px solid;
 }
- .green {
+tr .pending {
+    border-color: yellow;
+}
+tr .modified {
+    border-color: orange;
+}
+tr .accept {
     border-color: green;
 }
-.red {
+
+tr .denied {
     border-color: red;
 }
 

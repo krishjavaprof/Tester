@@ -75,10 +75,10 @@
                         Action </th>
                 </tr>
             </thead>
-            <tbody role="rowgroup" *ngFor="let element of dataSource">
+            <tbody role="rowgroup" *ngFor="let element of dataSource;let i = index">
                 <tr  role="row" class="mat-row cdk-row ng-star-inserted" >
                     <td  role="gridcell" 
-                        class="mat-cell cdk-cell appointment-code ng-star-inserted" [ngClass]="element.code">
+                        class="mat-cell cdk-cell appointment-code ng-star-inserted" [ngClass]="element.status">
                         <span class="status-color"></span>
                         {{element.appointmentId}} </td>
                     <td  role="gridcell" 
@@ -109,7 +109,7 @@
 
                 <tr class="action-box" *ngIf="element.openActionItem">
                     <td colspan="6">
-                        <app-action-appointments  (actionComplted)="element.openActionItem = false"></app-action-appointments>
+                        <app-action-appointments [actionElement]="element" (actionComplted)="actionCompleted($event, i)"></app-action-appointments>
                     </td>
 
                 </tr>

@@ -3,12 +3,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 const ELEMENT_DATA: any[] = [
-  { appointmentId: 123478, patientName: 'sam', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: '', code: 'orange' },
-  { appointmentId: 123478, patientName: 'john', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: '', code: 'green' },
-  { appointmentId: 123478, patientName: 'peter', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: '', code: 'orange' },
-  { appointmentId: 123478, patientName: 'david', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: '', code: 'green' },
-  { appointmentId: 123478, patientName: 'joel', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: '', code: 'red' },
-  { appointmentId: 123478, patientName: 'david', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: '', code: 'green' }
+  { appointmentId: 123478, patientName: 'sam', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: '' },
+  { appointmentId: 123478, patientName: 'john', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'pending', action: ''},
+  { appointmentId: 123478, patientName: 'peter', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'accept', action: '' },
+  { appointmentId: 123478, patientName: 'david', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: ''},
+  { appointmentId: 123478, patientName: 'joel', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'denied', action: '' },
+  { appointmentId: 123478, patientName: 'david', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: '' }
 
 
 ];
@@ -19,8 +19,7 @@ const ELEMENT_DATA: any[] = [
   styleUrls: ['./appointments.component.css']
 })
 export class AppointmentsComponent implements OnInit {
-  displayedColumns: string[] = ['Appointment ID', 'Patient Name', 'Date & Time', 'Reason for Visit', 'status', 'Action'];
-  dataSource = ELEMENT_DATA;
+ dataSource = ELEMENT_DATA;
   formGroup: FormGroup;
   constructor(private formBuilder: FormBuilder) { }
 
@@ -43,6 +42,10 @@ export class AppointmentsComponent implements OnInit {
     } else {
       this.dataSource = ELEMENT_DATA;
     }
+  }
+
+  public actionCompleted(element: any, index: number) {
+    this.dataSource[index] = element;
   }
 
 }
