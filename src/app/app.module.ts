@@ -39,6 +39,8 @@ import {MatSliderModule } from '@angular/material/slider';
 import {HomeComponent} from './components/login-success/provider-dashboard/home/home.component';
 import { ActionComponent } from './components/login-success/provider-dashboard/appointments/action/action.component';
 import { ClaimsComponent } from './components/login-success/provider-dashboard/claims/claims.component';
+import {ClimsComponent} from './components/login-success/provider-dashboard/clims/clims.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,8 @@ import { ClaimsComponent } from './components/login-success/provider-dashboard/c
     AppointmentsComponent,
     HomeComponent,
     ActionComponent,
-    ClaimsComponent
+    ClaimsComponent,
+    ClimsComponent
   ],
   imports: [
     BrowserModule,

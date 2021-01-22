@@ -7,3 +7,14 @@
 {
     margin-top: 16px;
 }
+
+.button-control {
+    float:right;
+    .save {
+        background-color: #107C93;
+        color: #ffffff;
+    }
+    button {
+        margin-left: 8px;
+    }
+}

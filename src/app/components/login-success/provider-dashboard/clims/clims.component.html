@@ -12,15 +12,14 @@
                             <mat-form-field appearance="fill" class="example-full-width col-md-4">
                                 <mat-label> Medicare </mat-label>
                                 <mat-select formControlName = "medicare">
-                                    <mat-option value=""></mat-option>
+                                    <mat-option value="test">test</mat-option>
                                     <mat-option value=""></mat-option>
                                     <mat-option value=""></mat-option>
                                 </mat-select>
-                                <input matInput>
                             </mat-form-field>
       
                             
-                            <mat-form-field  appearance="fill" class="example-full-width col-md-4">
+                            <mat-form-field  appearance="fill" class="example-full-width col-md-7">
                                 <mat-label>Patient Name (Last Name, First Name, Middle Name</mat-label>
                                 <input matInput formControlName = "patientName" placeholder= "patientName" >
                             </mat-form-field>
@@ -38,7 +37,6 @@
                                     <mat-option value="Female">Female</mat-option>
                                     <mat-option value=""></mat-option>
                                 </mat-select>
-                                <input matInput>
                             </mat-form-field>
 
                             <mat-form-field  appearance="fill" class="example-full-width col-md-4">
@@ -67,7 +65,6 @@
                                     <mat-option value="Florida">Florida</mat-option>
                                     <mat-option value="Florida">Florida</mat-option>
                                 </mat-select>
-                                <input matInput>
                             </mat-form-field>
                             
                             <mat-form-field appearance="fill" class="example-full-width col-md-4">
@@ -86,10 +83,10 @@
                     </div>
             
                 
-                <div>
-                    <button mat-button matStepperNext>Next</button>
+                <div class="button-control">
+                    <button mat-raised-button matStepperNext>Next</button>
                     <button mat-raised-button>Cancel</button>
-                    <button mat-raised-button>Save</button>
+                    <button mat-raised-button class="save">Save</button>
                 </div>
             </form>
         </mat-step>
@@ -97,11 +94,11 @@
         <mat-step [stepControl] = "secondFormGroup" label="Insurance Details">
             <form [formGroup]="secondFormGroup">
                 <div class="row mt-2">
-                    <mat-form-field>
+                    <mat-form-field class="col-md-4">
                         <mat-label>Insured's ID Number</mat-label>
                         <input matInput formControlName = "insuredId" placeholder= "insuredId" required> 
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="col-md-8">
                         <mat-label>Insured's Name(Last Name, First Name, Middle Name)</mat-label>
                         <input matInput formControlName = "insuredName" placeholder= "insuredName" required> 
                     </mat-form-field>
@@ -109,17 +106,17 @@
                 </div>
 
                 <div class="row mt-3">
-                <mat-form-field>
+                <mat-form-field class="col-md-4">
                     <mat-label>Patient Relationship to Insured</mat-label>
                     <input matInput formControlName = "patientRelation" placeholder= "patientRelation" required> 
                 </mat-form-field>
 
-                <mat-form-field>
-                    <mat-label>Insured's Address</mat-label>
+                <mat-form-field class="col-md-4">
+                    <mat-label >Insured's Address</mat-label>
                     <input matInput formControlName = "insuredAddress" placeholder= "insuredAddress" required> 
                 </mat-form-field>
 
-                <mat-form-field>
+                <mat-form-field class="col-md-4">
                     <mat-label>City</mat-label>
                     <input matInput formControlName = "citi" placeholder= "citi" required> 
                 </mat-form-field>
@@ -141,43 +138,42 @@
                             <mat-option value="Florida">Florida</mat-option>
                             <mat-option value="Florida">Florida</mat-option>
                         </mat-select>
-                        <input matInput>
                     </mat-form-field>
 
-                    <mat-form-field>
+                    <mat-form-field class="col-md-4">
                         <mat-label>Zip Code</mat-label>
                         <input matInput formControlName = "zipCode" placeholder= "zipCode" required> 
                     </mat-form-field>
 
-                    <mat-form-field>
+                    <mat-form-field class="col-md-4">
                         <mat-label>Other Insured's Policy Group</mat-label>
                         <input matInput formControlName = "otherInsuredPolicy" placeholder= "otherInsuredPolicy" required> 
                     </mat-form-field>
                 </div>
 
                 <div class="row mt-2">
-                    <mat-form-field>
+                    <mat-form-field class="col-md-8">
                         <mat-label>Other Insured's Name(First Name,Middle Name)</mat-label>
                         <input matInput formControlName = "otherInsuredName" placeholder= "otherInsuredName" required> 
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="col-md-4">
                         <mat-label>Other Insured's Last Name</mat-label>
                         <input matInput formControlName = "otherInsuredLastName" placeholder= "otherInsuredLastName" required> 
                     </mat-form-field>
                 </div>
                 <div class="row mt-2">
-                    <mat-form-field>
+                    <mat-form-field class="col-md-4">
                         <mat-label>Reserved for NUCC Use</mat-label>
                         <input matInput formControlName = "reservedForNUCC" placeholder= "reservedForNUCC" required> 
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="col-md-4">
                         <mat-label>Insurance Plan Name</mat-label>
                         <input matInput formControlName = "insuredPlanName" placeholder= "insuredPlanName" required> 
                     </mat-form-field>
                 </div>
-
+                <p>Is Patient Conditions Related to :</p>
                 <div class="row mt-3">
-                    <p>Is Patient Conditions Related to :</p>
+                    
                     <mat-form-field appearance="fill" class="example-full-width col-md-4">
                         <mat-label> Employment? (Current/ Previous) </mat-label>
                         <mat-select formControlName = "isPatient" >
@@ -185,7 +181,6 @@
                             <mat-option value=""></mat-option>
                             <mat-option value=""></mat-option>
                         </mat-select>
-                        <input matInput>
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" class="example-full-width col-md-4">
@@ -195,7 +190,6 @@
                             <mat-option value=""></mat-option>
                             <mat-option value=""></mat-option>
                         </mat-select>
-                        <input matInput>
                     </mat-form-field>
 
                     <mat-form-field appearance="fill" class="example-full-width col-md-4">
@@ -205,16 +199,15 @@
                             <mat-option value=""></mat-option>
                             <mat-option value=""></mat-option>
                         </mat-select>
-                        <input matInput>
                     </mat-form-field>
                 </div>
 
                 <div class="row mt-3">
-                    <mat-form-field>
+                    <mat-form-field class="col-md-4">
                         <mat-label>Reserved for Local Use</mat-label>
                         <input matInput formControlName = "reservedForLocal" placeholder= "reservedForLocal" required> 
                     </mat-form-field>
-                    <mat-form-field>
+                    <mat-form-field class="example-full-width col-md-4">
                         <mat-label>Insured's Policy Group</mat-label>
                         <input matInput formControlName = "insuredPolicyGroup" placeholder= "insuredPolicyGroup" required> 
                     </mat-form-field>
@@ -226,68 +219,60 @@
 
                 <div class="row mt-3">
                     <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                        <mat-label> Sex </mat-label>
+                        <mat-label> Sex</mat-label>
                         <mat-select formControlName = "sex">
                             <mat-option value="Male">Male</mat-option>
                             <mat-option value="Female">Female</mat-option>
                             <mat-option value=""></mat-option>
                         </mat-select>
-                        <input matInput>
                     </mat-form-field>
 
-                    <mat-form-field>
+                    <mat-form-field class="example-full-width col-md-4">
                         <mat-label>Other Claim ID</mat-label>
                         <input matInput formControlName = "otherClaim" placeholder= "otherClaim" required> 
                     </mat-form-field>
 
-                    <mat-form-field>
+                    <mat-form-field class="col-md-4">
                         <mat-label>Insurance Plan Name</mat-label>
                         <input matInput formControlName = "insuredPlanName" placeholder= "insuredPlanName" required> 
                     </mat-form-field>
                 </div>
 
-                <div>
-                    <mat-form-field>
+                <div class="row mt-3">
+                    <mat-form-field class="col-md-4">
                         <mat-label> Claim Codes(Designated by NUCC)</mat-label>
                         <input matInput formControlName = "claimCodes" placeholder= "claimCodes" required> 
                     </mat-form-field>
-                    <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                    <mat-form-field appearance="fill" class="col-md-4">
                         <mat-label> Another Health Benefit Plan ? </mat-label>
                         <mat-select formControlName = "anotherHealthBenefit">
                             <mat-option value=""></mat-option>
                             <mat-option value=""></mat-option>
                             <mat-option value=""></mat-option>
                         </mat-select>
-                        <input matInput>
                     </mat-form-field>
                 </div>
 
-                <div>
-                    <button mat-button matStepperPrevious>PREV</button>
-                    <button mat-button matStepperNext>Next</button>
-
+                <div class="button-control">
+                    <button mat-raised-button matStepperPrevious>PREV</button>
+                    <button mat-raised-button matStepperNext>Next</button>
+                    <button mat-raised-button >cancel</button>
+                    <button mat-raised-button class="save">Save</button>
                 </div>
             </form>
         </mat-step>
 
-        <mat-step>
-            <ng-template matStepLabel>Provider & Case Details</ng-template>
-            
-            <div>
-                <button mat-button matStepperPrevious>Back</button>
-                <button mat-button (click)="stepper.reset()">Reset</button>
-                <button mat-raised-button>Cancel</button>
-                    <button mat-raised-button>Save</button>
-            </div>
-        </mat-step>
 
         
         <mat-step [stepControl] = "thirdFormGroup">
             <form [formGroup] = "thirdFormGroup">
                 <ng-template matStepLabel> Provider & Case Details </ng-template>
+            <mat-card>
                     <div class="container">
+                        <h2>Provider Info</h2>
+                        <mat-card>
                         <div class="row mt-2">
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-form-field appearance="fill" class="col-md-4">
                                 <mat-label> Name of Referring Provider </mat-label>
                                 <input matInput formControlName = "nameOfReferring" placeholder ="nameOfReferring" >
                             </mat-form-field>
@@ -296,6 +281,7 @@
                                 <input matInput formControlName = "npi" placeholder ="npi">
                             </mat-form-field>
                         </div>
+                        </mat-card>
 
                         <div class="row mt-2">
                             <mat-form-field appearance="fill" class="example-full-width col-md-4">
@@ -510,7 +496,8 @@
                         <button mat-raised-button>Save</button>
                         <button mat-raised-button>Submit</button>
                     </div>
-                </div>    
+                </div> 
+            </mat-card>   
             </form>
         </mat-step>
     </mat-horizontal-stepper>

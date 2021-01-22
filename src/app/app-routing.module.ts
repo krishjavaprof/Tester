@@ -10,7 +10,7 @@ import { LogInSuccessComponent} from './components/login-success/login-success.c
 import { AppointmentsComponent } from './components/login-success/provider-dashboard/appointments/appointments.component';
 import {HomeComponent} from './components/login-success/provider-dashboard/home/home.component';
 import { ClaimsComponent } from './components/login-success/provider-dashboard/claims/claims.component';
-
+import {ClimsComponent} from './components/login-success/provider-dashboard/clims/clims.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: 'login', component: LogInComponent },
@@ -24,6 +24,7 @@ const routes: Routes = [
     { path: 'provider-appointments', component: AppointmentsComponent},
     {path: 'provider-home', component: HomeComponent },
     {path: 'provider-claims', component: ClaimsComponent },
+    {path: 'clims', component: ClimsComponent},
     { path: '', pathMatch: 'full', redirectTo: 'provider-home' },
   ]
 }
