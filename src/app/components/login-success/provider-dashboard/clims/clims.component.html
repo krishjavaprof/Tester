@@ -448,20 +448,114 @@
                                 <input matInput formControlName = "prior" placeholder ="prior">
                             </mat-form-field>
                         </div>
-                        <button disabled>Add Line Items</button>
+                        <button>Add Line Items</button>
+                        <div class="container">
+                            <mat-step [stepControl] = "claimsFormGroup">
+                                <form [formGroup] = "claimsFormGroup">
+                                    <ng-template matStepLabel> Claims Details </ng-template>
+                                        <div class="container">
+                                            <div class="row mt-3">
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>Date(s) of Service From</mat-label>
+                                                    <input matInput="picker" formControlName = "DateofServiceFrom" placeholder= "Date(s) of Service From" required>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>Date(s) of Service To</mat-label>
+                                                    <input matInput="picker" formControlName = "DateofServicTo" placeholder= "Date(s) of Service To" required>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>Plan of Service </mat-label>
+                                                    <input matInput formControlName = "ReferringProvider" placeholder= "Name of Referring Provider" required>
+                                                </mat-form-field>
+                                                
+                                            </div>
+
+                                            <div class=" container row mt-2">
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>EMG &nbsp;&nbsp;</mat-label>
+                                                    <input matInput formControlName = "EMG" placeholder= "EMG" required>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label style="width: 800px;">Procedures,Services,or Supplies CPT/HCPCS </mat-label>
+                                                    <input matInput formControlName = "ProceduresServicesSupplies" placeholder= "Procedures,Services,or Supplies" required>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>Procedures,Services,or Supplies CPT/HCPCS </mat-label>
+                                                    <input matInput formControlName = "ProceduresServicesSupplies" placeholder= "Procedures,Services,or Supplies" required>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>Diagnosis Pointer </mat-label>
+                                                    <input matInput formControlName = "DiagnosisPointer" placeholder= "Diagnosis Pointer" required>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>Charges </mat-label>
+                                                    <input matInput formControlName = "Charges" placeholder= "Charges" required>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>Days or Units </mat-label>
+                                                    <input matInput formControlName = "DaysorUnits" placeholder= "Days or Units" required>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>EPSDT Family Plan </mat-label>
+                                                    <input matInput formControlName = "EPSDTFamilyPlan" placeholder= "EPSDT Family Plan" required>
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>ID Qual </mat-label>
+                                                    <input matInput formControlName = "IDQual" placeholder= "ID Qual" required>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>Rendering Provider ID </mat-label>
+                                                    <input matInput formControlName = "RenderingProviderID" placeholder= "Rendering Provider ID" required>
+                                                </mat-form-field>
+                                                <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                                                    <mat-label>NPI </mat-label>
+                                                    <input matInput formControlName = "NPI" placeholder= "NPI" required>
+                                                </mat-form-field>
+
+                                                <div class=" alignment col-md-12 col-xs-12">
+                                                    <button mat-raised-button>Cancel</button>
+                                                    <button mat-raised-button>Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </form>
+                            </mat-step>
+                        </div>
+
                     </div>
 
                 <div class="container-down">
                     <div class="scrollmenu">
-                        <table>
+                        <table class="table"  style="width: 100%;">
                             <thead>
-                                <th>
+                                <tr>
+                                    <th colspan="4">Date(s) of Services</th>
+                                    <th colspan="2">Procedures,Services, or Supplies</th>
+                                </tr>
+                                <tr>
+                                    <th>From: MM DD YY |</th>
+                                    <th> To: MM DD YY</th>
+                                    <th>Plan of Services</th>
+                                    <th>EMG</th>
+                                    <th>(Explain Unusual Circumstances)</th>
+                                    <th>Diagnosis Pointer</th>
+                                    <th>$ Charges</th>
+                                    <th>EPSDT Family Plan</th>
+                                    <th>ID.Qual</th>
+                                    <th>NPI</th>
+                                    <th>Rendering Provider ID</th>
                                     
-                                </th>
+                                </tr>
                             </thead>
                             <tr>
                                 <td>
-
+                                    
                                 </td>
                             </tr>
                         </table>
