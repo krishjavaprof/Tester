@@ -13,7 +13,7 @@ export class ClimsComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
-  
+  claimsFormGroup: FormGroup;
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -94,6 +94,22 @@ export class ClimsComponent implements OnInit {
      'serviceFacility':[''],
      'billingProvider':[''],
       // thirdCtrl : ['', Validators.required]
+});
+this.claimsFormGroup = this.formBuilder.group({
+  'DateofServiceFrom':[''],
+  'DateofServicTo':[''],
+  'ReferringProvider':[''],
+  'EMG':[''],
+  'ProceduresServicesSupplies':[''],
+  // 'ProceduresServicesSupplies':[''],
+  'DiagnosisPointer':[''],
+  'Charges':[''],
+  'DaysorUnits':[''],
+  'EPSDTFamilyPlan':[''],
+  'IDQual':[''],
+  'RenderingProviderID':[''],
+  'NPI':[''],
+
 });
   }
 }
