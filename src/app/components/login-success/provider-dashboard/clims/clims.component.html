@@ -268,7 +268,7 @@
             <form [formGroup] = "thirdFormGroup">
                 <ng-template matStepLabel> Provider & Case Details </ng-template>
             <mat-card>
-                    <div class="container">
+                    
                         <h2>Provider Info</h2>
                         <mat-card>
                         <div class="row mt-2">
@@ -283,48 +283,65 @@
                         </div>
                         </mat-card>
 
+                <mat-card class="p-section2">
+                    <div class="container">
                         <div class="row mt-2">
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>Date of Current illness,Injury or Pregnancy(LMP)</mat-label>
-                                <input matInput="picker" formControlName = "dateOfCurrentillness" placeholder = "dateOfCurrentillness" >
+                            
+                            <p class="col-5 mt-3">Date of Current illness,Injury or Pregnancy(LMP):</p>
+                            <mat-form-field appearance="fill" class="example-full-width col-3">
+                                <mat-label> Date </mat-label>
+                                <input matInput [matDatepicker]="picker1" placeholder="dob">
+                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                <mat-datepicker #picker1></mat-datepicker>
                             </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>Quality </mat-label>
+                            <mat-form-field appearance="fill" class="example-full-width col-md-3">
+                                <mat-label>Qual </mat-label>
                                 <input matInput formControlName = "quality" placeholder = "quality">  
                             </mat-form-field>
                         </div>
 
                         <div class="row mt-2">
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>Other Date</mat-label>
-                                <input matInput="picker"  formControlName = "otherDate" placeholder = "otherDate"> 
+                            <mat-form-field appearance="fill" class="example-full-width offset-md-5 col-3">
+                                <mat-label>Qual </mat-label>
+                                <input matInput  placeholder = "quality"> 
                             </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>Quality </mat-label>
-                                <input matInput formControlName ="quality" placeholder = "quality"> 
-                            </mat-form-field>
-                        </div>
-                        <div class="row mt-3">
-                            <p>Dates Patient unable to work in Current Occupation</p>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>From Date</mat-label>
-                                <input matInput="picker"formControlName ="fromDate" >
-                            </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>To Date</mat-label>
-                                <input matInput="picker" formControlName ="toDate">
+                            <mat-form-field appearance="fill" class="example-full-width col-3">
+                                <mat-label> Date </mat-label>
+                                <input matInput [matDatepicker]="picker2" placeholder="dob">
+                                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                                <mat-datepicker #picker2></mat-datepicker>
                             </mat-form-field>
                             
                         </div>
                         <div class="row mt-3">
-                            <p>Hospitalization Dates related to Current services</p>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>From Date</mat-label>
-                                <input matInput="picker" formControlName ="fromDate">
+                            <p class="col-5 mt-3">Dates Patient unable to work in Current Occupation</p>
+                            <mat-form-field appearance="fill" class="example-full-width col-3">
+                                <mat-label> From Date </mat-label>
+                                <input matInput [matDatepicker]="picker3" placeholder="from date">
+                                <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                                <mat-datepicker #picker3></mat-datepicker>
                             </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label>To Date</mat-label>
-                                <input matInput="picker" formControlName  ="toDate">
+                            <mat-form-field appearance="fill" class="example-full-width col-3">
+                                <mat-label> To Date </mat-label>
+                                <input matInput [matDatepicker]="picker4" placeholder="To Date">
+                                <mat-datepicker-toggle matSuffix [for]="picker4"></mat-datepicker-toggle>
+                                <mat-datepicker #picker4></mat-datepicker>
+                            </mat-form-field>
+                            
+                        </div>
+                        <div class="row mt-3">
+                            <p class="col-5 mt-3">Hospitalization Dates related to Current services</p>
+                            <mat-form-field appearance="fill" class="example-full-width col-3">
+                                <mat-label> From Date </mat-label>
+                                <input matInput [matDatepicker]="picker5" placeholder="From Date">
+                                <mat-datepicker-toggle matSuffix [for]="picker5"></mat-datepicker-toggle>
+                                <mat-datepicker #picker5></mat-datepicker>
+                            </mat-form-field>
+                            <mat-form-field appearance="fill" class="example-full-width col-3">
+                                <mat-label> To Date </mat-label>
+                                <input matInput [matDatepicker]="picker6" placeholder="To Date">
+                                <mat-datepicker-toggle matSuffix [for]="picker6"></mat-datepicker-toggle>
+                                <mat-datepicker #picker6></mat-datepicker>
                             </mat-form-field>
                             
                         </div>
@@ -334,87 +351,88 @@
                                 <input matInput formControlName ="additionalClaim">
                             </mat-form-field>
 
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-form-field appearance="fill" class="example-full-width offset-1 col-md-3">
                                 <mat-label> Outside Lab? </mat-label>
                                 <mat-select formControlName ="outside">
                                     <mat-option value=""></mat-option>
                                     <mat-option value=""></mat-option>
                                     <mat-option value=""></mat-option>
                                 </mat-select>
-                                <input matInput>
                             </mat-form-field>
 
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
+                            <mat-form-field appearance="fill" class="example-full-width col-3">
                                 <mat-label>$ Charges </mat-label>
                                 <input matInput formControlName ="charge" placeholder = "charge">
                             </mat-form-field>
 
                         </div>
 
-                        <div class="row">
-                            <p>Diagnosis or Nature of Illness or Injury Relate A-L to service line below (24E0</p>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> ICD Ind </mat-label>
-                                <input matInput formControlName ="icdId" placeholder = "icdId"> 
-                            </mat-form-field>
-                            
+                        <div class="e24-section">
+                            <div class="row">
+                                <p class="mt-3 col-8">Diagnosis or Nature of Illness or Injury Relate A-L to service line below (24E0</p>
+                                <mat-form-field appearance="fill" class="example-full-width col-4">
+                                    <mat-label> ICD Ind </mat-label>
+                                    <input matInput formControlName ="icdId" placeholder = "icdId"> 
+                                </mat-form-field>
+                                
+                            </div>
+                            <div class="row-mt-2">
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> A </mat-label>
+                                    <input matInput formControlName ="a" placeholder = "a">
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> B </mat-label>
+                                    <input matInput formControlName ="b" placeholder = "b">
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> C </mat-label>
+                                    <input matInput formControlName ="c" placeholder = "c">
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> D </mat-label>
+                                    <input matInput formControlName ="d" placeholder = "d">
+                                </mat-form-field>
+                            </div>
+                            <div class="row-mt-2">
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> E </mat-label>
+                                    <input matInput formControlName ="e" placeholder = "e">
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> F </mat-label>
+                                    <input matInput formControlName ="f" placeholder = "f"> 
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> G </mat-label>
+                                    <input matInput formControlName ="g" placeholder = "g">
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> H </mat-label>
+                                    <input matInput formControlName ="h" placeholder = "h">
+                                </mat-form-field>
+                            </div>
+                            <div class="row-mt-1">
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> I </mat-label>
+                                    <input matInput formControlName ="i" placeholder = "i">  
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> J </mat-label>
+                                    <input matInput formControlName ="j" placeholder = "j">
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> K </mat-label>
+                                    <input matInput formControlName ="k" placeholder = "k">
+                                </mat-form-field>
+                                <mat-form-field appearance="fill" class="example-full-width col-3">
+                                    <mat-label> L </mat-label>
+                                    <input matInput formControlName ="l" placeholder = "l">
+                                </mat-form-field>
+                            </div>
                         </div>
-                        <div class="row-mt-4">
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> A </mat-label>
-                                <input matInput formControlName ="a" placeholder = "a">
-                            </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> B </mat-label>
-                                <input matInput formControlName ="b" placeholder = "b">
-                            </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> C </mat-label>
-                                <input matInput formControlName ="c" placeholder = "c">
-                            </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> D </mat-label>
-                                <input matInput formControlName ="d" placeholder = "d">
-                            </mat-form-field>
-                        </div>
-
-                        <div class="row-mt-4">
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> E </mat-label>
-                                <input matInput formControlName ="e" placeholder = "e">
-                            </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> F </mat-label>
-                                <input matInput formControlName ="f" placeholder = "f"> 
-                            </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> G </mat-label>
-                                <input matInput formControlName ="g" placeholder = "g">
-                            </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> H </mat-label>
-                                <input matInput formControlName ="h" placeholder = "h">
-                            </mat-form-field>
-                        </div>
-
-                        <div class="row-mt-4">
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> I </mat-label>
-                                <input matInput formControlName ="i" placeholder = "i">  
-                            </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> J </mat-label>
-                                <input matInput formControlName ="j" placeholder = "j">
-                            </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> K </mat-label>
-                                <input matInput formControlName ="k" placeholder = "k">
-                            </mat-form-field>
-                            <mat-form-field appearance="fill" class="example-full-width col-md-4">
-                                <mat-label> L </mat-label>
-                                <input matInput formControlName ="l" placeholder = "l">
-                            </mat-form-field>
-                        </div>
+                        
+                    
 
                         <div class="row-mt-3">
                             <mat-form-field appearance="fill" class="example-full-width col-md-4">
@@ -489,14 +507,14 @@
                             <input matInput formControlName = "billingProvider" placeholder ="billingProvider" >
                         </mat-form-field>
                     </div>
-                        
-                    <div>
-                        <button mat-button matStepperPrevious>PREV</button>
-                        <button mat-raised-button>Cancel</button>
-                        <button mat-raised-button>Save</button>
-                        <button mat-raised-button>Submit</button>
+                    <div class="button-control">
+                        <button mat-raised-button matStepperPrevious>PREV</button>
+                        <button mat-raised-button >Cancel</button>
+                        <button mat-raised-button class="save" >Save</button>
+                        <button mat-raised-button class="save">Submit</button>
                     </div>
                 </div> 
+                </mat-card>
             </mat-card>   
             </form>
         </mat-step>
