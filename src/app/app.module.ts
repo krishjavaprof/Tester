@@ -40,7 +40,7 @@ import {HomeComponent} from './components/login-success/provider-dashboard/home/
 import { ActionComponent } from './components/login-success/provider-dashboard/appointments/action/action.component';
 import { ClaimsComponent } from './components/login-success/provider-dashboard/claims/claims.component';
 import {ClimsComponent} from './components/login-success/provider-dashboard/clims/clims.component';
-
+import {AddLineItemComponent} from './components/login-success/provider-dashboard/clims/add-line-item/add-line-item.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +60,8 @@ import {ClimsComponent} from './components/login-success/provider-dashboard/clim
     HomeComponent,
     ActionComponent,
     ClaimsComponent,
-    ClimsComponent
+    ClimsComponent,
+    AddLineItemComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +84,8 @@ import {ClimsComponent} from './components/login-success/provider-dashboard/clim
     
   ],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [AddLineItemComponent]
 })
 
 export class AppModule { }

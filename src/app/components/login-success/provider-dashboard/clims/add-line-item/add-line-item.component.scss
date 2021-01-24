@@ -1,0 +1,10 @@
+.action-controls{
+    text-align: right;
+    .active {
+        background-color: #107C93;
+        color: #ffffff;
+    }
+    button {
+        margin-left: 5px;
+    }
+}

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { AddLineItemComponent } from './add-line-item/add-line-item.component';
 
 @Component({
   selector: 'app-clims',
@@ -13,8 +15,9 @@ export class ClimsComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   thirdFormGroup: FormGroup;
-  claimsFormGroup: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  dataSource: any[] = [];
+
+  constructor(private formBuilder: FormBuilder, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.firstFormGroup = this.formBuilder.group({
@@ -95,21 +98,19 @@ export class ClimsComponent implements OnInit {
      'billingProvider':[''],
       // thirdCtrl : ['', Validators.required]
 });
-this.claimsFormGroup = this.formBuilder.group({
-  'DateofServiceFrom':[''],
-  'DateofServicTo':[''],
-  'ReferringProvider':[''],
-  'EMG':[''],
-  'ProceduresServicesSupplies':[''],
-  // 'ProceduresServicesSupplies':[''],
-  'DiagnosisPointer':[''],
-  'Charges':[''],
-  'DaysorUnits':[''],
-  'EPSDTFamilyPlan':[''],
-  'IDQual':[''],
-  'RenderingProviderID':[''],
-  'NPI':[''],
 
-});
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddLineItemComponent, {
+      width: '700px',
+      data: {}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.dataSource.push(result); 
+      }         
+    });
   }
 }
