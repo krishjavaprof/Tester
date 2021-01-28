@@ -1,17 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AppointmentService } from '../../../../services/appointment.service';
+import * as moment from 'moment';
 
-
-const ELEMENT_DATA: any[] = [
-  { appointmentId: 123478, patientName: 'sam', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: '' },
-  { appointmentId: 123478, patientName: 'john', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'pending', action: ''},
-  { appointmentId: 123478, patientName: 'peter', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'accept', action: '' },
-  { appointmentId: 123478, patientName: 'david', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: ''},
-  { appointmentId: 123478, patientName: 'joel', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'denied', action: '' },
-  { appointmentId: 123478, patientName: 'david', date: '12/12/2020 10:24AM', reason: 'check up Test', status: 'modified', action: '' }
-
-
-];
 
 @Component({
   selector: 'app-provider-appointments',
@@ -19,12 +10,19 @@ const ELEMENT_DATA: any[] = [
   styleUrls: ['./appointments.component.css']
 })
 export class AppointmentsComponent implements OnInit {
- dataSource = ELEMENT_DATA;
+  private appointmentList;
+  dataSource;
   formGroup: FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  public pastAppointment = false;
+  constructor(private formBuilder: FormBuilder, private appointmentService: AppointmentService) { }
 
   public ngOnInit() {
     this.createForm();
+    this.appointmentService.getAppointments().subscribe(data => {
+      this.appointmentList = data;
+      this.dataSource = data;
+    })
+
   }
 
   createForm() {
@@ -35,18 +33,46 @@ export class AppointmentsComponent implements OnInit {
     });
   }
 
-  public onSubmit(): void {
+  public doSearch(): void {
     const pName = this.formGroup.controls.providerName.value;
-    if (pName) {
-      this.dataSource = ELEMENT_DATA.filter(data => data.patientName == pName);
-    } else {
-      this.dataSource = ELEMENT_DATA;
+    const status = this.formGroup.controls.status.value;
+    const date = this.formGroup.controls.date.value;
+    let list: any[] = this.appointmentList;
+    if (status) {
+      list = list.filter(element => element.appointment_Status === status);
     }
+    if (date) {
+      list = list.filter(element => {
+        const selectedDate = moment(date).format('DD/MM/yyyy');
+        const elementDate = moment(element.appointment_Date_Time).format('DD/MM/yyyy');
+        if (elementDate === selectedDate) {
+          return element;
+        }
+
+      });
+    }  
+    if (this.pastAppointment) {
+      list = list.filter(element => {
+        const selectedDate = moment().format('DD/MM/yyyy');
+        const elementDate = moment(element.appointment_Date_Time).format('DD/MM/yyyy');
+        if (elementDate !== selectedDate) {
+          return element;
+        }
+
+      });
+    } 
+    
+    this.dataSource = list;
   }
 
   public actionCompleted(element: any, index: number) {
     this.dataSource[index] = element;
   }
+
+  public pastAppiontmentChange(event) {
+    this.pastAppointment = !this.pastAppointment;
+    this.doSearch();
+  } 
 
 }
 

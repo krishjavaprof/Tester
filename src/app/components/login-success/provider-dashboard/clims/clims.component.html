@@ -6,7 +6,13 @@
     <mat-horizontal-stepper [liner] = "isLinear" #stepper>
         <mat-step [stepControl] = "firstFormGroup">
             <form [formGroup] = "firstFormGroup">
-                <ng-template matStepLabel> Patient Details </ng-template>
+                <ng-template matStepLabel> 
+                    <div class="tab-details">
+                        <img class="tab-img" src="../../../../../assets/images/patient-details.svg">
+                        <div> Patient Details </div>
+                    </div>
+                </ng-template>
+                    
                     <div class="container">
                         <div class="row mt-2">
                             <mat-form-field appearance="fill" class="example-full-width col-md-4">
@@ -91,8 +97,14 @@
             </form>
         </mat-step>
 
-        <mat-step [stepControl] = "secondFormGroup" label="Insurance Details">
+        <mat-step [stepControl] = "secondFormGroup" >
             <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel> 
+                    <div class="tab-details">
+                        <img class="tab-img" src="../../../../../assets/images/healthcare.svg">
+                        <div> Insurance Details </div>
+                    </div>
+                </ng-template>
                 <div class="row mt-2">
                     <mat-form-field class="col-md-4">
                         <mat-label>Insured's ID Number</mat-label>
@@ -266,7 +278,12 @@
         
         <mat-step [stepControl] = "thirdFormGroup">
             <form [formGroup] = "thirdFormGroup">
-                <ng-template matStepLabel> Provider & Case Details </ng-template>
+                <ng-template matStepLabel>
+                    <div class="tab-details">
+                        <img class="tab-img" src="../../../../../assets/images/case-study.svg">
+                        <div>  Provider & Case Details </div>
+                    </div>                    
+                </ng-template>
             <mat-card>
                     
                         <h2>Provider Info</h2>

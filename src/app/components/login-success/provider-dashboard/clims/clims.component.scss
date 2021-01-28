@@ -1,3 +1,4 @@
+
 .mat-stepper-horizontal
 {
     margin-top: 8px;
@@ -60,4 +61,15 @@ tr.mat-row, tr.mat-footer-row {
 
 .line-item-btn {
     margin-bottom: 10px;
+}
+
+.tab-img {
+    background-color: rgba(0,0,0,.04);
+    width: 50px;
+    border-radius: 50%;
+    height:50px;
+    padding: 5px;
+}
+.tab-details {
+    text-align: center;
 }

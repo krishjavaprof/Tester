@@ -1,7 +1,7 @@
 <div class="appointments-section container">
     <div class="toggle-menu">
         <div class="c-appointments active">Confirmed Appointments</div>
-        <mat-slide-toggle>past Appointments</mat-slide-toggle>
+        <mat-slide-toggle (change) = "pastAppiontmentChange($event)">past Appointments</mat-slide-toggle>
         
     </div>
     <div class="search-section">
@@ -19,14 +19,14 @@
 
                         <mat-form-field appearance="fill" class="example-full-width col-md-4">
                             <mat-label> Date </mat-label>
-                            <input matInput [matDatepicker]="picker1" placeholder="dob">
+                            <input matInput [matDatepicker]="picker1" placeholder="dob" formControlName="date">
                             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                             <mat-datepicker #picker1></mat-datepicker>
                         </mat-form-field>
 
                         <mat-form-field class="col-md-4 status-field">
                             <mat-label>status</mat-label>
-                            <mat-select>
+                            <mat-select formControlName="status" >
                                 <mat-option value="accept"> accept</mat-option>
                                 <mat-option value="modified"> Modified </mat-option>
                                 <mat-option value="pending"> pending </mat-option>
@@ -38,7 +38,7 @@
                         <div class="action-items">
                             <mat-action-row>
                                 <button mat-raised-button>Cancel</button>
-                                <button mat-raised-button type="submit" (click)="onSubmit()" class="search-button">Search</button>
+                                <button mat-raised-button type="submit" (click)="doSearch()" class="search-button">Search</button>
                             </mat-action-row>
                         </div>
 
@@ -78,22 +78,22 @@
             <tbody role="rowgroup" *ngFor="let element of dataSource;let i = index">
                 <tr  role="row" class="mat-row cdk-row ng-star-inserted" >
                     <td  role="gridcell" 
-                        class="mat-cell cdk-cell appointment-code ng-star-inserted" [ngClass]="element.status">
+                        class="mat-cell cdk-cell appointment-code ng-star-inserted" [ngClass]="element.appointment_Status">
                         <span class="status-color"></span>
-                        {{element.appointmentId}} </td>
+                        {{element.appointment_ID}} </td>
                     <td  role="gridcell" 
                         class="mat-cell cdk-cell cdk-column-Patient-Name mat-column-Patient-Name ng-star-inserted">
-                        {{element.patientName}}
+                        {{element.provider_ID}}
                     </td>
                     <td  role="gridcell" 
                         class="mat-cell cdk-cell cdk-column-Date---Time mat-column-Date---Time ng-star-inserted">
-                        {{element.date}}</td>
+                        {{element.appointment_Date_Time}}</td>
                     <td  role="gridcell" 
                         class="mat-cell cdk-cell cdk-column-Reason-for-Visit mat-column-Reason-for-Visit ng-star-inserted">
-                        {{element.reason}}</td>
+                        {{element.visit_Reason}}</td>
                     <td  role="gridcell" 
                         class="mat-cell cdk-cell cdk-column-status mat-column-status ng-star-inserted"> 
-                        {{element.status}}
+                        {{element.appointment_Status}}
                      </td>
                     <td  role="gridcell" 
                         class="mat-cell cdk-cell cdk-column-Action mat-column-Action ng-star-inserted">
